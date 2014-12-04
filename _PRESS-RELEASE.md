@@ -18,27 +18,43 @@ Once the project moves into development, the press release can be used as a touc
  
 ## Heading ##
   > Name the product in a way the reader (i.e. your target customers) will understand.
+  WafflePress.
 
 ## Sub-Heading ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  People with stories to share will be able to share them easily and
+  beautifully.
 
 ## Summary ##
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  WafflePress is a minimal yet powerful blogging platform that simplifies the writing process
+  and showcases your content. Take advantage of powerful editing tools that let
+  you format things the way YOU want. Capture your notes and inspiration into
+  saved journals and then publish your ideas when you're ready to share.
 
 ## Problem ##
   > Describe the problem your product solves.
+  There aren't any blogging platforms named after delicious breakfast foods.   
 
 ## Solution ##
   > Describe how your product elegantly solves the problem.
+  WafflePress cleanly bridges the gap between ideation and publication. Now, you
+  can efficiently capture and organize your thoughts AND turn them into
+  beautiful stories, all in one place.
 
 ## Quote from You ##
   > A quote from a spokesperson in your company.
+  "Delicious stories; hot off the press."
 
 ## How to Get Started ##
   > Describe how easy it is to get started.
+  Having a fully-fledged blog is as easy as picking a username and password.
+  Sign up and start writing. Can you smell what you're cookin'?
 
 ## Customer Quote ##
   > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  "This is the tastiest blogging product I've ever tried."
 
 ## Closing and Call to Action ##
   > Wrap it up and give pointers where the reader should go next.
+  www.wafflepress.io
