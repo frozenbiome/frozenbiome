@@ -13,6 +13,7 @@ mongoose.connect(mongodbURL, function (err, res) {
     }
 });
 
+//Define Schema
 var Schema = mongoose.Schema;
 
 // User schema
@@ -20,11 +21,13 @@ var User = new Schema({
     username: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     created: { type: Date, default: Date.now }
-});
+    posts: [{ type: Schema.Types.ObjectId, ref: 'Post' }]
+);
 
 //Post schema
 var Post = new Schema({
     title: { type: String, required: true },
+    author: { type: String, required: true },
     is_published: { type: Boolean, default: false },
     content: { type: String, required: true },
     created: { type: Date, default: Date.now },
