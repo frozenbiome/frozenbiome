@@ -2,8 +2,10 @@
     textarea { border: none; }
 </style>
 
-<form align="center">
-  <textarea style="margin-top:50px; border:none; resize:none; width:60%; height:80%; font-size:15pt; font-family:Arial;">{{post}}</textarea>
+<form align="center" ng-submit="submit(title, body)">
+	<textarea ng-model="title" class="title" style="margin-top:50px; border:none; resize:none; width:60%; height:30px; font-size:15pt; font-family:Arial;">{{title}}</textarea>
+	<br>
+  <textarea ng-model="body" class="body" style="margin-top:20px; border:none; resize:none; width:60%; height:80%; font-size:15pt; font-family:Arial;">{{post}}</textarea>
   <br>
   <button>Post</button>
 </form>

@@ -9,6 +9,8 @@ angular.module('waffle', [
 ])
 
 .config(function($stateProvider, $urlRouterProvider, $httpProvider) {
+  $urlRouterProvider.otherwise('/dashboard');
+
   $stateProvider
     .state('post', {
       templateUrl: 'app/post/post.html',

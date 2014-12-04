@@ -2,7 +2,7 @@
 <html ng-app="waffle">
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-    <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="http://angular-ui.github.io/ui-router/release/angular-ui-router.min.js"></script>
 
     <script src="app/auth/auth.js"></script>
     <script src="app/dashboard/dashboard.js"></script>
@@ -14,5 +14,8 @@
   </head>
   <body>
     <h1 align='center'>Waffle Press</h1>
+
+    <div ui-view></div>
+
   </body>
 </html>
