@@ -4,8 +4,7 @@ angular.module('waffle.services', [])
   //getPost() ?? if post exists, else if new post don't
   //var editPost?
   var addPost = function (post) {
-  	method: 'POST',
-  	data: post
+  	method: 'POST'
   } 
 
 })
@@ -19,7 +18,6 @@ angular.module('waffle.services', [])
   });
 
   return {
-  	getPost: getPost,
   	getAllPosts: getAllPosts,
   	addPost: addPost
   };
