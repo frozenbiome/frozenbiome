@@ -1,5 +1,5 @@
-angular.module('waffle.main', [])
+// angular.module('waffle.main', [])
 
-.controller('MainController', function ($scope, Main) {
+// .controller('MainController', function ($scope, Main) {
 
-})
+// })

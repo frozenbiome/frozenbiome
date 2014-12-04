@@ -1,7 +1,7 @@
 angular.module('waffle', [
   'waffle.services',
   'waffle.post',
-  'waffle.main',
+  // 'waffle.main',
   'waffle.edit',
   'waffle.dashboard',
   'waffle.auth',
@@ -15,11 +15,11 @@ angular.module('waffle', [
       controller: 'PostController',
       url: '/post'
     })
-    .state('main', {
-      templateUrl: 'app/main/main.html',
-      controller: 'MainController',
-      url: '/main'
-    })
+    // .state('main', {
+    //   templateUrl: 'app/main/main.html',
+    //   controller: 'MainController',
+    //   url: '/main'
+    // })
     .state('edit', {
       templateUrl: 'app/edit/edit.html',
       controller: 'EditController',
