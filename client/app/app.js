@@ -1,18 +1,18 @@
 angular.module('waffle', [
   'waffle.services',
-  'waffle.postCtrl',
-  'waffle.autCtrl.',
-  'waffle.dashboardCtrl',
-  'waffle.editCtrl',
-  'waffle.mainCtrl',
+  'waffle.post',
+  'waffle.auth',
+  'waffle.dashboard',
+  'waffle.edit',
+  'waffle.main',
   'ui.router'
 ])
 
 .config(function($stateProvider, $urlRouterProvider, $httpProvider) {
   $stateProvider
     .state('post', {
-      templateUrl: 'app/post/postView.html',
+      templateUrl: 'app/post/post.html',
       controller: 'PostController',
-      url: '/',
+      url: '/post'
     })
-});
+})

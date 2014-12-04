@@ -1,4 +1,4 @@
-angular.module('waffle.postCtrl', [])
+angular.module('waffle.post', [])
 
 .controller('PostController', function ($scope, Post) {
 
