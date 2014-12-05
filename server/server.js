@@ -38,7 +38,9 @@ app.get('/users', function(req, res) {
 })
 
 app.get('/logout', function(req,res) {
+	console.log(req.session)
 	if (req.session.user) {
+	    console.log("DESTROYING SESSION FOR ", req.session.user);
 	    req.session.destroy(function(){});
  	} else {
  		res.status(400).send('Not logged in!')
@@ -74,6 +76,7 @@ app.post('/login', function(req,res) {
   		req.session.regenerate(function(){
   			req.session.user = username;
   			console.log("CREATED SESSION FOR ", username)
+  			console.log(req.session)
   			res.send("It's Waffle Time!");
   		});
   	})

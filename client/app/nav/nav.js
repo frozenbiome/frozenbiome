@@ -1,9 +1,12 @@
 angular.module('waffle.nav', [])
 
 .controller('NavController', function ($scope, $location, Auth) {
-  //$scope.post = {content: '', title: ''};
+  $scope.logout = function() {
+  	console.log("nav logging out")
+  	Auth.logout();
+  }
   // $scope.signedIn = Auth.signedIn;
-  // $scope.logout = Auth.logout;
+  //$scope.post = {content: '', title: ''};
   // $scope.user = user;
 
 })

@@ -26,7 +26,8 @@ angular.module('waffle.auth', [])
 		}
 		Auth.signup($scope.username, $scope.password)
 		.then(function(data){
-			//TODO redirect to dashboard
+			$rootscope.signedIn = true;
+			$rootscope.user = username;
 		}, function(err) {
 			alert(err.data)
 			$scope.username = '';
