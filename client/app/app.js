@@ -1,11 +1,12 @@
 angular.module('waffle', [
   'waffle.services',
-  // 'waffle.post',
   'waffle.edit',
   'waffle.dashboard',
   'waffle.auth',
   'waffle.nav',
-  'ui.router'
+  'ui.router',
+  'ngSanitize',
+  'btford.markdown',
 ])
 
 .config(function($stateProvider, $urlRouterProvider, $httpProvider) {
