@@ -33,6 +33,13 @@ app.get('/users', function(req, res) {
 	})
 })
 
+app.get('/logout', function(req,res) {
+	if (req.session) {
+		console.log(req.session)
+	    req.session.destroy(function(){});
+  }
+})
+
 
 
 
@@ -44,7 +51,12 @@ app.post('/signup', function(req, res) {
 	var password = req.body.password;
 	mongo_helpers.saveNewUser(username, password, 
 		function() { res.status(403).send('Username Taken!')}, 
-		function() { res.send('Saved!'); })
+		function() { 
+			req.session.regenerate(function(){
+				req.session.user = username;
+			});
+			res.send('Saved!'); 
+		})
 })
 
 //login with authentication 
@@ -56,6 +68,7 @@ app.post('/login', function(req,res) {
   	function() { 
   		req.session.regenerate(function(){
   			req.session.user = username;
+  			console.log("CREATED SESSION FOR ", username)
   		});
   		res.send("It's Waffle Time!");
   	})

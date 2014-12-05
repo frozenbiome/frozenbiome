@@ -33,7 +33,6 @@ angular.module('waffle.services', [])
 
 .factory('Auth', function ($http, $location, $window) {
   var login = function (username, password) {
-    console.log('LOGIN', username, password)
     return $http({
       method: 'POST',
       url: '/login',
@@ -42,7 +41,6 @@ angular.module('waffle.services', [])
   }
 
   var signup = function (username, password) {
-    console.log('SIGNUP', username, password)
     return $http({
       method: 'POST',
       url: '/signup',
@@ -50,8 +48,16 @@ angular.module('waffle.services', [])
     })
   }
 
+  var logout = function() {
+    return $http({
+      method: 'GET',
+      url: '/logout'
+    })
+  }
+
   return {
   	login: login,
-    signup: signup
+    signup: signup,
+    logout: logout
   };
 })
