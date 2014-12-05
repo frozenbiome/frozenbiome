@@ -2,11 +2,12 @@ angular.module('waffle.edit', [])
 
 .controller('EditController', function ($scope, Edit) {
 
-  $scope.submit = function(title, body) {
-  	Edit.addPost()
+  $scope.submit = function(title, content) {
+    console.log(this.title);
+    console.log(this.content);
+  	Edit.addPost(this.title, this.content)
   	.then (function() {
-	  console.log(title);
-	  console.log(body);
+  	  console.log("promise achieved")
   	});
   }
 })
