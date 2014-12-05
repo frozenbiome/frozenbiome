@@ -30,3 +30,33 @@ angular.module('waffle.services', [])
   	getAllPosts: getAllPosts,
   };
 })
+
+.factory('Auth', function ($http, $location, $window) {
+  var signup = function(username, password) {
+    return $http({
+      method: 'POST',
+      url: '/signup',
+      data: {
+        username: username,
+        password: password
+      }
+    })
+  }
+
+  var login = function(username, password) {
+    return $http({
+      method: 'POST',
+      url: '/login',
+      data: {
+        username: username,
+        password: password
+      }
+    })
+  }
+
+  return {
+    signup: signup,
+    login: login
+  };
+
+})

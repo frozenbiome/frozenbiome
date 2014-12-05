@@ -13,7 +13,7 @@ angular.module('waffle', [
   $stateProvider
     .state('post', {
       templateUrl: 'app/post/post.html',
-      controller: 'PostController',
+      controller: 'DashboardController',
       url: '/post'
     })
 
@@ -27,6 +27,18 @@ angular.module('waffle', [
     	templateUrl: 'app/dashboard/dashboard.html',
     	controller: 'DashboardController',
     	url: '/dashboard'
+    })
+
+    .state('login', {
+      templateUrl: 'app/auth/login.html',
+      controller: 'AuthController',
+      url: '/login'
+    })
+
+    .state('signup', {
+      templateUrl: 'app/auth/signup.html',
+      controller: 'AuthController',
+      url: '/signup'
     })
 
 })
