@@ -3,18 +3,15 @@
     <div class="col-xs-1">
     </div>
     <div class="col-md-9 col-xs-11">
-
       <div class="info">
-        <a ng-href="{{ post.url }}">
+        <a ng-href="#/post">
           {{ post.title }}
-          <span class="url">({{ post.url }})</span>
-        </a>
+          <!-- <span class="url">({{ post.url }})</span> -->
+          </a>
       </div>
-      <div>
-        <span>submitted by</span>
-        &mdash;
-        <a ng-click="deletePost(post)">delete</a>
-        <button ng-click="getAllPosts()">Get Posts</button>
+      <div ng-if="currentUser.id === post.creatorID">
+        <button><a href="#/edit">Edit</a></button>
+        <button ng-click="deletePost(post)">Delete</button>
       </div>
     </div>
   </div>
