@@ -2,7 +2,7 @@ angular.module('waffle.dashboard', [])
 
 
 .controller('DashboardController', function ($scope, Dashboard, $timeout) {
-  $scope.posts = [];
+  $scope.posts = ['hi'];
   $scope.getAllPosts = function () {
     Dashboard.getAllPosts()
       .then(function (data) {
