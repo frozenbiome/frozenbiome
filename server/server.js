@@ -15,6 +15,8 @@ app.use(session({
   saveUninitialized: true
 }));
 
+app.use(express.static(__dirname + '/../client'));
+
 //Set up routes
 var routes = {};
 

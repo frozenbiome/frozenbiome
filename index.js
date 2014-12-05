@@ -1,4 +1,5 @@
 var app = require('./server/server.js');
+var port = 8000;
 
-app.listen(8000);
-console.log("Listening on localhost:8000")
+app.listen(port);
+console.log("Listening on localhost: " + port)
