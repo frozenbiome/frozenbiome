@@ -9,7 +9,6 @@ angular.module('waffle.services', [])
       data: { title: title, content: content, username: 'BILLY' }
     });
   }
-
   return{
     addPost: addPost
   };
@@ -19,9 +18,8 @@ angular.module('waffle.services', [])
   var getAllPosts = function () {
   	return $http({
       method: 'GET',
-      url: '/users',
-
-
+      //TODO: Dynamically update username, and display at top of dashboard page
+      url: '/users?q=BILLY',
     })
     .then(function (res) {
     	return res.data;

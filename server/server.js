@@ -26,6 +26,7 @@ var routes = {};
 // get all posts for user
 //  http://www.wafflepress.com/users?q=evan
 app.get('/users', function(req, res) {
+  //TODO: If username is in URL, parse that. If not, get from session
 	username = req.query.q;
 	mongo_helpers.getAllPosts(username, function(posts) {
 		res.send(posts);
