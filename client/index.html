@@ -3,16 +3,23 @@
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
     <script src="http://angular-ui.github.io/ui-router/release/angular-ui-router.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link href="app/styles/styles.css" rel="stylesheet" media="screen">
   </head>
   <body>
+    <div ng-include="'app/nav/nav.html'"></div>
+
     <div ui-view></div>
+    
+    <footer class="footer">
+        <p><span class="glyphicon glyphicon-heart"></span> Copyright &copy; WafflePress 2014</p>
+    </footer>
 
     <!-- /client/# -->
 
     <script src="app/auth/auth.js"></script>
     <script src="app/dashboard/dashboard.js"></script>
     <script src="app/edit/edit.js"></script>
-    <script src="app/post/post.js"></script>
     <script src="app/services/services.js"></script>
     <script src="app/app.js"></script>
 

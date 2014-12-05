@@ -1,16 +1,17 @@
-<img align='left' src='http://www.wpclipart.com/food/breakfast/waffle/waffle_round_small.png' style='width: 100px; height: 100px'>
-
 <style type="text/css">
     textarea { border: none; }
 </style>
-
-<form align="center" ng-submit="submit(title, content)">
-	<textarea ng-model="title" class="title" style="margin-top:50px; border:none; resize:none; width:55%; height:25px; font-size:15pt; font-family:'Courier New', Courier, monospace;"  placeholder='My Waffle Post'></textarea>
-	<br>
-  <textarea ng-model="content" class="content" style="margin-top:15px; border:none; resize:none; width:55%; height:500px; font-size:15pt; font-family:'Courier New', Courier, monospace;"  placeholder='Write tasty thoughts here..'></textarea>
-  <br>
-  <button style="margin-top:10px;">Post</button>
-</form>
+<div class='container'>
+	<form role="form" align="center" ng-submit="submit(title, content)">
+	  <div class="form-group">
+	    <textarea ng-model="title" class="title" placeholder='My Waffle Post'></textarea>
+	  </div>
+	  <div class="form-group">
+	    <textarea ng-model="content" class="content" placeholder='Write tasty thoughts here..'></textarea>
+	  </div>
+	  <input class="btn btn-sm btn-primary" value="Press it" type="submit" />
+	</form>
+</div>
 
 <script type="text/javascript">
 function noenter() {

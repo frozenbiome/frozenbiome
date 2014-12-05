@@ -1,0 +1,45 @@
+.waffleLogo {
+
+}
+
+.navbar-brand {
+  padding: 2px 15px;
+}
+
+.footer {
+  text-align: center;
+  padding: 10px 0 5px 0;
+  border-top: 1px solid #ccc;
+  margin-top: 20px;
+  background-color: #eee;
+  color: #888;
+  font-size: 10pt;
+  position:fixed;
+	bottom:0;
+	left:0;
+	right:0;
+}
+
+.title {
+	border:none; 
+	resize:none; 
+	width:55%; 
+	height:30px; 
+	font-size:15pt; 
+	font-family:'Courier New', 
+	Courier, monospace;
+}
+
+.content {
+	border:none; 
+	resize:none; 
+	width:55%; 
+	height:450px; 
+	font-size:15pt; 
+	font-family:'Courier New', 
+	Courier, monospace;
+}
+
+
+
+
