@@ -55,26 +55,3 @@ var authenticateUser = exports.authenticateUser = function(username, password, e
 	});
 }
 
-
-// var grant = new db.userModel({
-//   username: "evan",
-//   password: "password"
-// })
-
-// var post = new db.postModel({
-// 	title: "test post",
-// 	// author: 
-// 	is_published: true,
-// 	content: "thecontentz"
-// })
-
-// grant.save(function(err, doc) {
-//   if (err) console.log(err);
-//   console.log(doc);
-// })
-
-
-// db.userModel.findOneAndUpdate({username: "evan"}, {$push: {posts: post}}, {safe: true, upsert: true} ,function(err, doc){
-// 	if (err) {throw err;}
-// 	console.log(doc)
-// })
