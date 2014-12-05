@@ -1,4 +1,5 @@
 var db = require('./mongo_database.js')
+var bcrypt = require('bcrypt-nodejs');
 
 var saveNewUser = exports.saveNewUser = function(username, password, errCallback, successCallback) {
 	var newUser = new db.userModel({
@@ -32,6 +33,25 @@ var getAllPosts = exports.getAllPosts = function(username, callback) {
 		if (err) { throw err; }
 		callback(doc.posts);
 	})
+}
+
+
+var authenticateUser = exports.authenticateUser = function(username, password, errCallback, successCallback) {
+	db.userModel.findOne({username: username}, function(err,doc) {
+		if (err) { errCallback(); }
+	    else {
+	      bcrypt.compare(password, doc.password, function(err, result){
+	        if(!err && result){
+	          // req.session.regenerate(function(){
+	             // req.session.user = username;
+	             successCallback();
+	          // });
+			} else {
+				errCallback();
+			}
+	      });
+	    }
+	});
 }
 
 
