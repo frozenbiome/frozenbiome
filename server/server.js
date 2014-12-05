@@ -31,7 +31,6 @@ app.get('/users', function(req, res) {
 
 //sign up new user
 app.post('/signup', function(req, res) {
-	console.log(req.body)
 	var username = req.body.username;
 	var password = req.body.password;
 	mongo_helpers.saveNewUser(username, password, function() { res.status(403).send('Username Taken!')}, function() { res.send('Saved!')})

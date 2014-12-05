@@ -8,7 +8,7 @@ var saveNewUser = exports.saveNewUser = function(username, password, errCallback
 
 	newUser.save(function(err, doc) {
 	  if (err) { errCallback(); }
-	  successCallback();
+	  else { successCallback(); }
 	})
 }
 
@@ -22,7 +22,7 @@ var saveNewPost = exports.saveNewPost = function(username, title, content, errCa
 
 	db.userModel.findOneAndUpdate({username: username}, {$push: {posts: post}}, {safe: true, upsert: true} ,function(err, doc){
 		if (err) { errCallback(); }
-		successCallback();
+		else { successCallback(); }
 	})
 }
 
