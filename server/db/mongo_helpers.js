@@ -30,11 +30,18 @@ var saveNewPost = exports.saveNewPost = function(username, title, content, errCa
 
 
 var getAllPosts = exports.getAllPosts = function(username, callback) {
-	db.userModel.findOne({username: username}, function(err,doc) {
-		if (err) { throw err; }
-		callback(doc.posts);
-	})
-}
+  db.userModel.findOne({username: username})
+    .exec(
+      function(err,doc) {
+        if (err) { throw err; }
+        if (doc) {
+          callback(doc.posts);
+        } else {
+          callback("User not found", 403)
+        }
+      }
+    ) 
+};
 
 
 var authenticateUser = exports.authenticateUser = function(username, password, errCallback, successCallback) {

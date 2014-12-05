@@ -8,18 +8,18 @@ angular.module('waffle.dashboard', [])
 
   $scope.getAllPosts = function () {
     console.log("GETTING POSTS")
-    Dashboard.getAllPosts()
+      Dashboard.getAllPosts()
       .then(function (data) {
-         data.forEach(function(post) {
-           //TODO: PUSH IN DESC CREATED ORDER
-           if ($scope.post_ids.indexOf(post._id) == -1) {
-             $scope.posts.push(post);
-             $scope.post_ids.push(post._id);
-           }
-        });
-      })
-      .catch(function (error) {
-        console.error(error);
+        data.forEach(function(post) {
+          //TODO: PUSH IN DESC CREATED ORDER
+          console.log(post)
+          if ($scope.post_ids.indexOf(post._id) == -1) {
+            $scope.posts.push(post);
+            $scope.post_ids.push(post._id);
+          }
+        }, function (err) { console.log("Couldn't retrieve posts: ", err); }
+        );
+
       });
-  };
+  }
 })

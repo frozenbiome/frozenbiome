@@ -28,8 +28,12 @@ var routes = {};
 app.get('/users', function(req, res) {
   //TODO: If username is in URL, parse that. If not, get from session
 	username = req.query.q;
-	mongo_helpers.getAllPosts(username, function(posts) {
-		res.send(posts);
+	mongo_helpers.getAllPosts(username, function(posts, status) {
+    if (status) {
+      res.status(status).send(posts);
+    } else {
+      res.send(posts);
+    }
 	})
 })
 

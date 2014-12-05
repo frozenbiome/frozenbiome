@@ -21,9 +21,9 @@ angular.module('waffle.services', [])
       //TODO: Dynamically update username, and display at top of dashboard page
       url: '/users?q=BILLY',
     })
-    .then(function (res) {
+    .then(function(res) {
       return res.data;
-    });
+    })
   }
 
   return {
