@@ -12,39 +12,38 @@ app.use(morgan('dev'));
 //Set up routes
 var routes = {};
 
-mongo_helpers.getAllPosts("evan", function(posts) {
-	console.log(posts);
-});
 
-// mongo_helpers.saveNewPost("grant", "WafflesAreGreat", "SOOOOOOOOgreeeaatt11!!!1!!");
+/********** GET REQUESTS ********/
 
-// mongo_helpers.saveNewUser("grant", "wins");
-
-// var db = require('./db/mongo_database.js')
-
-// var grant = new db.userModel({
-//   username: "evan",
-//   password: "password"
-// })
-
-// var post = new db.postModel({
-// 	title: "test post",
-// 	// author: 
-// 	is_published: true,
-// 	content: "thecontentz"
-// })
-
-// grant.save(function(err, doc) {
-//   if (err) console.log(err);
-//   console.log(doc);
-// })
+// get all posts for user
+//  http://www.wafflepress.com/users?q=evan
+app.get('/users', function(req, res) {
+	username = req.query.q;
+	mongo_helpers.getAllPosts(username, function(posts) {
+		res.send(posts);
+	})
+})
 
 
-// db.userModel.findOneAndUpdate({username: "evan"}, {$push: {posts: post}}, {safe: true, upsert: true} ,function(err, doc){
-// 	if (err) {throw err;}
-// 	console.log(doc)
-// })
 
+
+/********** POST REQUESTS ********/
+
+//sign up new user
+app.post('/signup', function(req, res) {
+	console.log(req.body)
+	var username = req.body.username;
+	var password = req.body.password;
+	mongo_helpers.saveNewUser(username, password, function() { res.status(403).send('Username Taken!')}, function() { res.send('Saved!')})
+})
+
+//save new post
+app.post('/newPost', function(req, res) {
+	var username = req.body.username;
+	var title = req.body.title;
+	var content = req.body.content;
+	mongo_helpers.saveNewPost(username, title, content, function() { res.status(403).send('Post Failed!')}, function() { res.send('Posted!')})
+})
 
 
 
