@@ -7,24 +7,18 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand waffleLogo" href="#"><img align='left' src='http://www.wpclipart.com/food/breakfast/waffle/waffle_round_small.png' style='width: 40px; height: 40px'></a>
+    <a class="navbar-brand waffleLogo" href="#"><img align='left' src='http://www.wpclipart.com/food/breakfast/waffle/waffle_round_small.png' style='width: 40px; height: 40px'><a class="navbar-brand waffleName">Waffle Press</a></a>
   </div>
 
   <!-- Collect the nav links, forms, and other content for toggling -->
-  <div ng-controller="NavCtrl" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <form class="navbar-form navbar-left" role="searcg" ng-submit="submitPost()" ng-if="signedIn()">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Title" ng-model="post.title">
-      </div>
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
+  <div ng-controller='NavController' class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav navbar-right">
       <li ng-if="signedIn()">
         <p class="navbar-text">{{ user.profile.username }}</p>
       </li>
       <li ng-if="signedIn()">
         <a ng-href="#/users/{{ user.profile.uid }}">
-          <img ng-src="http://www.gravatar.com/avatar/{{ user.profile.md5_hash }}" class="nav-pic" /> {{ currentUser.username }}
+          {{ currentUser.username }}
         </a>
       </li>
       <li ng-if="signedIn()">

@@ -4,6 +4,7 @@ angular.module('waffle', [
   'waffle.edit',
   'waffle.dashboard',
   'waffle.auth',
+  'waffle.nav',
   'ui.router'
 ])
 
