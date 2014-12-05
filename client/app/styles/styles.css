@@ -17,11 +17,9 @@
   background-color: #eee;
   color: #888;
   font-size: 10pt;
-  position:fixed;
-	bottom:0;
-	left:0;
-	right:0;
-  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 .title {
@@ -37,11 +35,10 @@
 .content {
 	border:none; 
 	resize:none; 
+	height:375px; 
 	width:55%; 
-	height:450px; 
 	font-size:15pt; 
-	font-family:'Courier New', 
-	Courier, monospace;
+	font-family:'Courier New', Courier, monospace;
 }
 
 .auth-forms {
@@ -55,6 +52,11 @@
     -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
+
+ }
+
+.pressBtn {
+	margin-bottom: 80px;
 }
 
 
