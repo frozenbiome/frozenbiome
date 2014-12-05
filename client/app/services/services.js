@@ -20,7 +20,6 @@ angular.module('waffle.services', [])
   	return $http({
       method: 'GET',
       //url
-      // data: post
     })
     .then(function (res) {
     	return res.data;
