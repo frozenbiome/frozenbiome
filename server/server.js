@@ -62,16 +62,16 @@ app.post('/login', function(req,res) {
 
 //save new post
 app.post('/newPost', function(req, res) {
-	if (req.session.user) {
+	// if (req.session.user) {
 		var username = req.session.user;
 		var title = req.body.title;
 		var content = req.body.content;
 		mongo_helpers.saveNewPost(username, title, content, 
 			function() { res.status(403).send('Post Failed!')}, 
 			function() { res.send('Posted!')})
-	} else {
-		res.status(401).send('You are not logged in');
-	}
+	// } else {
+		// res.status(401).send('You are not logged in');
+	// }
 })
 
 
