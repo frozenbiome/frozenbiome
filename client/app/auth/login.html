@@ -1,6 +1,8 @@
 <h1>Login</h1>
 
 
-<input type="text" class="username" placeholder="Username" ng-model="username"></input>
-<input type="text" class="password" placeholder="Password" ng-model="password"></input>
-<button class="submit" ng-click="login({{username}},{{password}})">Submit</button>
+<form ng-submit="login({{username}},{{password}})">
+	<input type="text" class="username" placeholder="Username" ng-model="username"></input>
+	<input type="text" class="password" placeholder="Password" ng-model="password"></input>
+	<input class='submitButton' type="submit"></input>
+</form>

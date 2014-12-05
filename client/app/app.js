@@ -1,6 +1,6 @@
 angular.module('waffle', [
   'waffle.services',
-  'waffle.post',
+  // 'waffle.post',
   'waffle.edit',
   'waffle.dashboard',
   'waffle.auth',

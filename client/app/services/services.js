@@ -33,6 +33,7 @@ angular.module('waffle.services', [])
 
 .factory('Auth', function ($http, $location, $window) {
   var login = function (username, password) {
+    console.log('LOGIN', username, password)
     return $http({
       method: 'POST',
       url: '/login',
@@ -40,7 +41,7 @@ angular.module('waffle.services', [])
     })
     //TODO display error responses to client
     .then(function(res) {
-      
+
     }) 
   }
 
