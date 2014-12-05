@@ -6,8 +6,12 @@ angular.module('waffle.edit', [])
     console.log(this.title);
     console.log(this.content);
   	Edit.addPost(this.title, this.content)
-  	.then (function() {
-  	  console.log("promise achieved")
-  	});
+  	.success(function(data) {
+  	  console.log("SUCCESS: ", data)
+  	})
+    .error(function(err, data) {
+      console.log("ERROR", err);
+      console.log("DATA", data);
+    });
   }
 })

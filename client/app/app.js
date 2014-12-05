@@ -29,7 +29,6 @@ angular.module('waffle', [
     	url: '/dashboard'
     })
 
-<<<<<<< HEAD
     .state('login', {
       templateUrl: 'app/auth/login.html',
       controller: 'AuthController',
@@ -43,4 +42,3 @@ angular.module('waffle', [
     })
 
 })
-=======

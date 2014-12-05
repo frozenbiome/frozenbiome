@@ -21,7 +21,8 @@ var saveNewPost = exports.saveNewPost = function(username, title, content, errCa
 		content: content
 	})
 
-	db.userModel.findOneAndUpdate({username: username}, {$push: {posts: post}}, {safe: true, upsert: true} ,function(err, doc){
+  //Won't write if user not found, but won't throw error either
+	db.userModel.findOneAndUpdate({username: username}, {$push: {posts: post}, new: true}, function(err, doc){
 		if (err) { errCallback(); }
 		else { successCallback(); }
 	})

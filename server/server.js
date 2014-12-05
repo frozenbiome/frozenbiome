@@ -63,7 +63,8 @@ app.post('/login', function(req,res) {
 //save new post
 app.post('/newPost', function(req, res) {
 	// if (req.session.user) {
-		var username = req.session.user;
+    //var username = req.session.user;
+    var username = req.body.username;
 		var title = req.body.title;
 		var content = req.body.content;
 		mongo_helpers.saveNewPost(username, title, content, 

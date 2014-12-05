@@ -5,8 +5,8 @@ angular.module('waffle.services', [])
   var addPost = function (title, content) {
     return $http({
       method: 'POST',
-      //url
-      data: { title: title, content: content }
+      url: 'newPost',
+      data: { title: title, content: content, username: 'BILLY' }
     });
   }
 
@@ -19,7 +19,9 @@ angular.module('waffle.services', [])
   var getAllPosts = function () {
   	return $http({
       method: 'GET',
-      //url
+      url: '/users',
+
+
     })
     .then(function (res) {
     	return res.data;
@@ -29,34 +31,4 @@ angular.module('waffle.services', [])
   return {
   	getAllPosts: getAllPosts,
   };
-})
-
-.factory('Auth', function ($http, $location, $window) {
-  var signup = function(username, password) {
-    return $http({
-      method: 'POST',
-      url: '/signup',
-      data: {
-        username: username,
-        password: password
-      }
-    })
-  }
-
-  var login = function(username, password) {
-    return $http({
-      method: 'POST',
-      url: '/login',
-      data: {
-        username: username,
-        password: password
-      }
-    })
-  }
-
-  return {
-    signup: signup,
-    login: login
-  };
-
 })
