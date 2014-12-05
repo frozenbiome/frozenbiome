@@ -39,20 +39,14 @@ angular.module('waffle.services', [])
       url: '/login',
       data: {username: username, password: password}
     })
-    //TODO display error responses to client
-    .then(function(res) {
-
-    }) 
   }
 
-  var signup = function () {
+  var signup = function (username, password) {
+    console.log('SIGNUP', username, password)
     return $http({
       method: 'POST',
       url: '/signup',
       data: {username: username, password: password}
-    })
-    //TODO display error responses to client 
-    .then(function(res) {
     })
   }
 

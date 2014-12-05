@@ -1,9 +1,11 @@
 <h1>Signup</h1>
 
 
-<form ng-submit="login({{username}},{{password}})">
+<form ng-submit="signup({{username}},{{password}})">
 	<input type="text" class="username" placeholder="Username" ng-model="username"></input>
-	<input type="text" class="password" placeholder="Password" ng-model="password"></input>
+	<input type="password" class="password" placeholder="Password" ng-model="password"></input>
+	<input type="password" class="passwordMatch" placeholder="Retype Password" ng-model="passwordMatch"></input>
 	<input class='submitButton' type="submit"></input>
 </form>
+
 

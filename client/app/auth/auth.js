@@ -13,13 +13,16 @@ angular.module('waffle.auth', [])
 	}
 
 	$scope.signup = function() {
+		if ($scope.password !== $scope.passwordMatch) {
+			alert('Passwords do not match!');
+			return;
+		}
 		Auth.signup($scope.username, $scope.password)
-		.success(function(data){
+		.then(function(data){
 			$scope.username = '';
 			$scope.password = '';
-		})
-		.error(function(err,data){
-			alert('')
+		}, function(err) {
+			alert(err.data)
 		})
 	}
  
