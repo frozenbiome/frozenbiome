@@ -15,11 +15,11 @@ angular.module('waffle.services', [])
 })
 
 .factory('Dashboard', function ($http, $location, $window) {
-  var getAllPosts = function () {
+  var getAllPosts = function (user) {
     return $http({
       method: 'GET',
       //TODO: Dynamically update username, and display at top of dashboard page
-      url: '/users?q=BILLY',
+      url: '/users?q=' + user,
     })
     .then(function(res) {
       return res.data;

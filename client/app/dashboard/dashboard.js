@@ -8,7 +8,7 @@ angular.module('waffle.dashboard', [])
 
   $scope.getAllPosts = function () {
     console.log("GETTING POSTS")
-      Dashboard.getAllPosts()
+      Dashboard.getAllPosts($rootScope.user)
       .then(function (data) {
         data.forEach(function(post) {
           //TODO: PUSH IN DESC CREATED ORDER
