@@ -40,6 +40,8 @@ angular.module('waffle.auth', [])
 
 	$scope.logout = function() {
 		Auth.logout();
+		$rootScope.loggedIn = false;
+		$rootScope.user = '';
 	}
  
 })
