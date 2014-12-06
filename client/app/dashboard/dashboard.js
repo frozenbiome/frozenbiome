@@ -1,7 +1,7 @@
 angular.module('waffle.dashboard', [])
 
 
-.controller('DashboardController', function ($scope, Dashboard, $timeout) {
+.controller('DashboardController', function ($scope, $rootScope, Dashboard, $timeout) {
   $scope.posts = [];
   //For tracking which posts are already rendered
   $scope.post_ids = [];
@@ -22,4 +22,14 @@ angular.module('waffle.dashboard', [])
 
       });
   }
+
+  $scope.testFunc = function() {
+    return true;
+  }
+
+  $scope.logged = function() {
+    return $rootScope.loggedIn;
+  }
+  
+
 })

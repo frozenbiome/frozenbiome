@@ -27,13 +27,13 @@
           {{ currentUser.username }}
         </a>
       </li>
-      <li ng-if="signedIn()">
+      <li ng-show="loggedIn">
         <a href="#" ng-click="logout()">Logout</a>
       </li>
-      <li ng-if="!signedIn()">
+      <li ng-show="!loggedIn">
         <a href="#/login">Login</a>
       </li>
-      <li ng-if="!signedIn()">
+      <li ng-show="!loggedIn">
         <a href="#/signup">Register</a>
       </li>
     </ul>

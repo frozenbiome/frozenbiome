@@ -55,9 +55,14 @@ angular.module('waffle.services', [])
     })
   }
 
+  var loggedIn = false;
+  var user = '';
+
   return {
   	login: login,
     signup: signup,
-    logout: logout
+    logout: logout,
+    loggedIn: loggedIn,
+    user: user
   };
 })
