@@ -2,14 +2,15 @@
     textarea { border: none; }
 </style>
 <div class='container'>
-	<form role="form" align="center" ng-submit="submit(title, content)">
+	<form role="form" align="center">
 	  <div class="form-group">
 	    <textarea ng-model="title" class="title" placeholder='My Waffle Post'></textarea>
 	  </div>
 	  <div class="form-group">
 	    <textarea ng-model="content" class="content" placeholder='Write tasty thoughts here..'></textarea>
 	  </div>
-	  <input class="btn btn-sm btn-primary pressBtn" value="Press New" type="submit" />
+	  <input ng-show="!isUpdate"class="btn btn-sm btn-primary pressBtn" ng-click="submit(title, content)" value="Press New" type="submit" />
+	  <input ng-show="isUpdate"class="btn btn-sm btn-primary pressBtn" ng-click="updatePost(title, content)" value="Update" type="submit" />
 	</form>
 </div>
 
