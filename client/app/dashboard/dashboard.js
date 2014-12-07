@@ -8,7 +8,7 @@ angular.module('waffle.dashboard', [])
 
   $scope.getAllPosts = function () {
     console.log("GETTING POSTS")
-      Dashboard.getAllPosts($rootScope.user)
+      Dashboard.getAllPosts()
       .then(function (data) {
         data.forEach(function(post) {
           console.log(post)

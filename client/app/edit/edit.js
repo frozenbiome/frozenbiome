@@ -3,9 +3,7 @@ angular.module('waffle.edit', [])
 .controller('EditController', function ($scope, $rootScope, Edit, Dashboard, $location) {
 
   $scope.submit = function(title, content) {
-    console.log(this.title);
-    console.log(this.content);
-  	Edit.addPost(this.title, this.content)
+  	Edit.addPost(this.title, this.content, $rootScope.user)
   	.success(function(data) {
       console.log("SUCCESS: ", data)
     })

@@ -2,11 +2,11 @@ angular.module('waffle.services', [])
 
 .factory('Edit', function ($http, $location, $window) {
   //getPost() if post exists, else if new post, don't
-  var addPost = function (title, content) {
+  var addPost = function (title, content, user) {
     return $http({
       method: 'POST',
-      url: 'newPost',
-      data: { title: title, content: content, username: 'david' }
+      url: '/newPost',
+      data: { title: title, content: content, username: user }
     });
   }
   
@@ -25,11 +25,11 @@ angular.module('waffle.services', [])
 })
 
 .factory('Dashboard', function ($http, $location, $window) {
-  var getAllPosts = function (user) {
+  var getAllPosts = function () {
     return $http({
       method: 'GET',
       //TODO: Dynamically update username, and display at top of dashboard page
-      url: '/users?q=' + user,
+      url: '/users',
     })
     .then(function(res) {
       return res.data;

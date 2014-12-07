@@ -25,9 +25,21 @@ var routes = {};
 
 // get all posts for user
 //  http://www.wafflepress.com/users?q=evan
-app.get('/users', function(req, res) {
+app.get('/users*', function(req, res) {
   //TODO: If username is in URL, parse that. If not, get from session
-	username = req.query.q;
+  var username;
+  var direct_query_username = req.url.split('/')[2];
+
+  if (direct_query_username !== undefined) {
+    username = direct_query_username;
+  } else if (req.session.user) {
+    username = req.session.user;
+  } else {
+    res.send(403);
+  }
+
+  console.log("GETTING POSTS FOR ", username)
+
 	mongo_helpers.getAllPosts(username, function(posts, status) {
     if (status) {
       res.status(status).send(posts);
@@ -83,6 +95,7 @@ app.post('/login', function(req,res) {
 
 //save new post
 app.post('/newPost', function(req, res) {
+  console.log(req.session.user)
 	// if (req.session.user) {
     //var username = req.session.user;
     var username = req.body.username;
