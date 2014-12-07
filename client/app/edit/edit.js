@@ -11,6 +11,8 @@ angular.module('waffle.edit', [])
       console.log("ERROR", err);
       console.log("DATA", data);
     });
+    
+    $location.path('/');
   }
 
   $scope.updatePost = function(title, content) {
