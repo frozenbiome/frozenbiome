@@ -110,6 +110,7 @@ app.post('/newPost', function(req, res) {
 app.post('/updatePost', function(req, res) {
 	// if (req.session.user) {
     //var username = req.session.user;
+    console.log("UPDATE SERVER HERE!!!!!!!")
     var username = req.body.username;
 		var title = req.body.title;
 		var content = req.body.content;

@@ -11,6 +11,7 @@ angular.module('waffle.services', [])
   }
   
   var updatePost = function (title, content, postID) {
+    console.log("Updating??????")
     return $http({
       method: 'POST',
       url: 'updatePost',
@@ -18,10 +19,11 @@ angular.module('waffle.services', [])
     });
   }
 
-  return{
+  return {
     addPost: addPost,
     updatePost: updatePost
   };
+
 })
 
 .factory('Dashboard', function ($http, $location, $window) {

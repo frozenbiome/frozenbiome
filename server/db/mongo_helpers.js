@@ -29,9 +29,9 @@ var saveNewPost = exports.saveNewPost = function(username, title, content, errCa
 	})
 }
 
-var updatePost = exports.updatPost = function(username, title, content, postID, errCallback, successCallback, isPublished) {
+var updatePost = exports.updatePost = function(username, title, content, postID, errCallback, successCallback, isPublished) {
 	db.userModel.update(
-		{username: username, 'posts._id': new ObjectID(postID)}, {$set: {
+		{'posts._id': new ObjectID(postID)}, {$set: {
 			'posts.$.title': title,
    			'posts.$.content': content
 		}}, function(err, doc){
@@ -39,6 +39,7 @@ var updatePost = exports.updatPost = function(username, title, content, postID, 
 		else { successCallback(); }
 	})    
 }
+
 
 
 var getAllPosts = exports.getAllPosts = function(username, callback) {
