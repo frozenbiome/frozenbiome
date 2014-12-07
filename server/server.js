@@ -30,15 +30,12 @@ app.get('/users*', function(req, res) {
   var username;
   var direct_query_username = req.url.split('/')[2];
 
+  console.log(req.session.user)
   if (direct_query_username !== undefined) {
     username = direct_query_username;
   } else if (req.session.user) {
     username = req.session.user;
-  } else {
-    res.send(403);
-  }
-
-  console.log("GETTING POSTS FOR ", username)
+  } 
 
 	mongo_helpers.getAllPosts(username, function(posts, status) {
     if (status) {
@@ -50,6 +47,7 @@ app.get('/users*', function(req, res) {
 })
 
 app.get('/logout', function(req,res) {
+	console.log(req.session)
 	if (req.session.user) {
 	    console.log("DESTROYING SESSION FOR ", req.session.user);
 	    req.session.destroy(function(){});
@@ -95,16 +93,15 @@ app.post('/login', function(req,res) {
 
 //save new post
 app.post('/newPost', function(req, res) {
-  console.log(req.session.user)
 	// if (req.session.user) {
-    //var username = req.session.user;
-    var username = req.body.username;
+    var username = req.session.user;
+    //var username = req.body.username;
+    console.log("POSTING FOR", username)
 		var title = req.body.title;
 		var content = req.body.content;
 		mongo_helpers.saveNewPost(username, title, content, 
 			function() { res.status(403).send('Post Failed!')}, 
 			function() { res.send('Posted!')})
-
 })
 
 app.post('/updatePost', function(req, res) {
