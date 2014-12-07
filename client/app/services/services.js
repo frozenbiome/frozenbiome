@@ -34,6 +34,7 @@ angular.module('waffle.services', [])
       url: '/users',
     })
     .then(function(res) {
+      console.log(res.data);
       return res.data;
     })
   }
