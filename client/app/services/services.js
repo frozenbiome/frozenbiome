@@ -6,7 +6,7 @@ angular.module('waffle.services', [])
     return $http({
       method: 'POST',
       url: 'newPost',
-      data: { title: title, content: content, username: 'BILLY' }
+      data: { title: title, content: content, username: 'david' }
     });
   }
   return{
