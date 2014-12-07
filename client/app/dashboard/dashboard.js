@@ -23,6 +23,11 @@ angular.module('waffle.dashboard', [])
       });
   }
 
+  $scope.savePostInfo = function() {
+    $rootScope.title = this.post.title;
+    $rootScope.content = this.post.content;
+  }
+
   $scope.testFunc = function() {
     return true;
   }

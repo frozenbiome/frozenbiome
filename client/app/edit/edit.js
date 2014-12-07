@@ -1,6 +1,6 @@
 angular.module('waffle.edit', [])
 
-.controller('EditController', function ($scope, Edit) {
+.controller('EditController', function ($scope, $rootScope, Edit, Dashboard) {
 
   $scope.submit = function(title, content) {
     console.log(this.title);
