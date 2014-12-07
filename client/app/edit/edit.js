@@ -1,6 +1,6 @@
 angular.module('waffle.edit', [])
 
-.controller('EditController', function ($scope, $rootScope, Edit, Dashboard) {
+.controller('EditController', function ($scope, $rootScope, Edit, Dashboard, $location) {
 
   $scope.submit = function(title, content) {
     console.log(this.title);
@@ -13,5 +13,7 @@ angular.module('waffle.edit', [])
       console.log("ERROR", err);
       console.log("DATA", data);
     });
+
+    $location.path('/');
   }
 })
