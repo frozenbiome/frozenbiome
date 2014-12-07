@@ -9,8 +9,18 @@ angular.module('waffle.services', [])
       data: { title: title, content: content, username: 'david' }
     });
   }
+  
+  var updatePost = function (title, content, postID) {
+    return $http({
+      method: 'POST',
+      url: 'updatePost',
+      data: { title: title, content: content, username: 'david', postID: postID }
+    });
+  }
+
   return{
-    addPost: addPost
+    addPost: addPost,
+    updatePost: updatePost
   };
 })
 

@@ -1,5 +1,6 @@
-var db = require('./mongo_database.js')
+var db = require('./mongo_database.js');
 var bcrypt = require('bcrypt-nodejs');
+var ObjectID = require('mongoose').Types.ObjectId;
 
 var saveNewUser = exports.saveNewUser = function(username, password, errCallback, successCallback) {
 	var newUser = new db.userModel({
@@ -26,6 +27,17 @@ var saveNewPost = exports.saveNewPost = function(username, title, content, errCa
 		if (err) { errCallback(); }
 		else { successCallback(); }
 	})
+}
+
+var updatePost = exports.updatPost = function(username, title, content, postID, errCallback, successCallback, isPublished) {
+	db.userModel.update(
+		{username: username, 'posts._id': new ObjectID(postID)}, {$set: {
+			'posts.$.title': title,
+   			'posts.$.content': content
+		}}, function(err, doc){
+		if (err) { console.log(error); }
+		else { successCallback(); }
+	})    
 }
 
 

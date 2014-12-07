@@ -91,9 +91,20 @@ app.post('/newPost', function(req, res) {
 		mongo_helpers.saveNewPost(username, title, content, 
 			function() { res.status(403).send('Post Failed!')}, 
 			function() { res.send('Posted!')})
-	// } else {
-		// res.status(401).send('You are not logged in');
-	// }
+
+})
+
+app.post('/updatePost', function(req, res) {
+	// if (req.session.user) {
+    //var username = req.session.user;
+    var username = req.body.username;
+		var title = req.body.title;
+		var content = req.body.content;
+		var postID = req.body.postID;
+		mongo_helpers.updatePost(username, title, content, postID, 
+			function() { res.status(403).send('Post Failed!')}, 
+			function() { res.send('Posted!')})
+
 })
 
 
