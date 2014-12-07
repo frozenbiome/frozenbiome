@@ -58,18 +58,22 @@ var getAllPosts = exports.getAllPosts = function(username, callback) {
 
 var authenticateUser = exports.authenticateUser = function(username, password, errCallback, successCallback) {
 	db.userModel.findOne({username: username}, function(err,doc) {
+    //Mongoose error
 		if (err) { errCallback(); }
 	    else {
-	      bcrypt.compare(password, doc.password, function(err, result){
-	        if(!err && result){
-	          // req.session.regenerate(function(){
-	             // req.session.user = username;
-	             successCallback();
-	          // });
-			} else {
-				errCallback();
-			}
-	      });
+        //User not found
+        if (doc == null) {
+          errCallback();
+        //User found
+        } else {
+          bcrypt.compare(password, doc.password, function(err, result){
+            if(!err && result){
+              successCallback();
+            } else {
+              errCallback();
+            }
+          });
+        }
 	    }
 	});
 }
