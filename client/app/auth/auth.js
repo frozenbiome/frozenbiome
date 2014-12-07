@@ -1,6 +1,8 @@
 angular.module('waffle.auth', [])
 
-.controller('AuthController', function ($scope, $rootScope, Auth) {
+.controller('AuthController', function ($scope, $location, $rootScope, Auth) {
+
+
 	$scope.login = function() {
 		if (!$scope.username || !$scope.password) {
 			alert('Username and password required!')
@@ -10,6 +12,7 @@ angular.module('waffle.auth', [])
 		.then(function(data){
 			$rootScope.loggedIn = true;
 			$rootScope.user = $scope.username;
+			$location.path('/');
 			//TODO redirect to dashboard
 		}, function(err) {
 			alert(err.data)
@@ -30,6 +33,7 @@ angular.module('waffle.auth', [])
 		.then(function(data){
 			$rootScope.loggedIn = true;
 			$rootScope.user = $scope.username;
+			$location.path('/');
 		}, function(err) {
 			alert(err.data)
 			$scope.username = '';
