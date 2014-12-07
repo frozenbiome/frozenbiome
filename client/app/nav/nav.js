@@ -8,8 +8,9 @@ angular.module('waffle.nav', [])
   	$rootScope.user = '';
 
   }
-  // $scope.signedIn = Auth.signedIn;
-  //$scope.post = {content: '', title: ''};
-  // $scope.user = user;
+  
+  $scope.makePost = function() {
+  	$location.path('/edit');
+  }
 
 })

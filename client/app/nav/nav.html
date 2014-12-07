@@ -13,7 +13,7 @@
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div ng-controller='NavController' class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <form class="navbar-form navbar-left" ng-show="loggedIn">
-      <button class="btn btn-default btn-sm" ng-click="$location.path('#/edit')">Make New Post</button>
+      <button class="btn btn-default btn-sm" ng-click="makePost()">Make New Post</button>
     </form>
     <ul class="nav navbar-nav navbar-right">
       <li ng-if="signedIn()">
