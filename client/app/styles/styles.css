@@ -1,6 +1,9 @@
 body {
   background-color: white;
 }
+.snippet {
+  font-style: italic;
+}
 .navbar-default .navbar-collapse {
   background-color: rgb(51, 122, 183);
 }

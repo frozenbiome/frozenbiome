@@ -5,8 +5,9 @@
   <div class="postRow" ng-repeat="post in posts.slice().reverse()">
     <div ng-model="user">{{user.username}}</div>
     <div ng-model="post">
-      <a href="#/post"><h2 class="dashTitles">{{post.title}}</h2></a>
-      <div>{{post.content}}</div>
+      <h2 class="dashTitles"><a href="#/post">{{post.title}}</a></h2>
+      <p class="snippet">{{post.content | limitTo : 200}} ...
+      <a class="read-more" href="#/post" role="button">Read more</a></p>
       <a ng-show="true" class="dashEdit" href="#/edit" ng-click="savePostInfo()">Edit</a>
     </div>
   </div>
