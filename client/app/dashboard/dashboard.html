@@ -1,18 +1,84 @@
 <!--TODO: Only render posts if user logged in. And user their username.-->
-<div ng-init="getAllPosts()"class="container posts-page">
+<div class="container">
 
-<!--<button ng-click="getAllPosts()">Get Posts</button>-->
-  <div class="postRow" ng-repeat="post in posts.slice().reverse()">
-    <div ng-model="user">{{user.username}}</div>
-    <div ng-model="post">
-      <h2 class="dashTitles"><a href="#/post">{{post.title}}</a></h2>
-      <p class="snippet">{{post.content | limitTo : 200}} ...
-      <a class="read-more" href="#/post" role="button">Read more</a></p>
-      <a ng-show="true" class="dashEdit" href="#/edit" ng-click="savePostInfo()">Edit</a>
+  <div class="row">
+
+    <!--SIDEBAR-->
+
+    <div class="col-md-4">
+
+      <!-- Sidebar Search-->
+      <div class="well">
+        <h4>Waffle Search</h4>
+        <div class="input-group">
+          <input type="text" class="form-control">
+          <span class="input-group-btn">
+                <button class="btn btn-default" type="button">
+                 <span class="glyphicon glyphicon-search"></span>
+          </button>
+          </span>
+        </div>
+        <!-- /.input-group -->
+      </div>
+
+      <!-- Sidebar Categories Well -->
+      <div class="well">
+        <h4>Waffle Categories</h4>
+        <div class="row">
+          <div class="col-lg-6">
+            <ul class="list-unstyled">
+              <li><a href="#">Javascript</a>
+              </li>
+              <li><a href="#">Ruby</a>
+              </li>
+              <li><a href="#">Python</a>
+              </li>
+              <li><a href="#">PHP</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-6">
+            <ul class="list-unstyled">
+              <li><a href="#">Mongo</a>
+              </li>
+              <li><a href="#">Neo4J</a>
+              </li>
+              <li><a href="#">MySQL</a>
+              </li>
+              <li><a href="#">PostgreSQL</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- /.row -->
+      </div>
+
+      <!-- Side Widget Well -->
+      <div class="well">
+        <h4>Latest</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+      </div>
+
+    </div>
+    <!-- Dashboard Area -->
+    <div class="col-lg-8">
+      <div class="well">
+        <h1>Evan Spiler's Dashboard</h1>
+      </div>
+      <div ng-init="getAllPosts()">
+
+        <!--<button ng-click="getAllPosts()">Get Posts</button>-->
+        <div ng-repeat="post in posts.slice().reverse()">
+          <div ng-model="user">{{user.username}}</div>
+          <div ng-model="post">
+            <h2><a ng-click="savePostInfo()" href="#/post">{{post.title}}</a></h2>
+            <p class="snippet">{{post.content | limitTo : 200}} ...
+              <a ng-show="true" class="read-more" href="#/post" role="button" ng-click="savePostInfo()">Read more</a>
+            </p>
+            <a ng-show="true" href="#/edit" ng-click="savePostInfo()">Edit</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-
-  <div class="space"></div>
-
 </div>
-

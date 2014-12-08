@@ -1,9 +1,157 @@
-<a ng-href="#/dashboard">Back to Dashboard</a>
+<div class="container">
 
-<div>
-  <h1>{{ post.title }} <span ng-if="user.uid === post.creatorUID"> | <button class="btn btn-xs btn-danger" ng-click="deletePost(post)"> Delete</button></span></h1>
-  <div>
-    <span>submitted by <a ng-href="#/users/{{ post.creatorUID }}">{{ post.creator }}</a></span>
+  <div class="row">
+
+    <!-- Blog Post Content Column -->
+    <div class="col-lg-8">
+      <ol class="breadcrumb">
+        <li><a href="#/dashboard">Back to Dashboard</a></li>
+        <li class="active">Post</li>
+      </ol>
+      
+      <!-- Blog Post -->
+
+      <!-- Title -->
+      <h1><strong>{{title || 'Javascript vs Ruby' }}</strong></h1>
+
+      <!-- Author -->
+      <p class="lead">
+        by <a href="#">Alex Hawkins</a>
+      </p>
+
+      <hr>
+
+      <!-- Date/Time -->
+      <p><span class="glyphicon glyphicon-time"></span> Posted on Dec 7, 2014 at 9:00 PM</p>
+
+      <hr>
+
+      <!-- Preview Image -->
+      <img class="img-responsive" src="http://placehold.it/900x300" alt="">
+
+      <hr>
+
+      <!-- Post Content -->
+      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!</p>
+
+      <hr>
+
+      <!-- Blog Comments -->
+
+      <!-- Comments Form -->
+      <div class="well">
+        <h4>Leave a Comment:</h4>
+        <form role="form">
+          <div class="form-group">
+            <textarea class="form-control" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+
+      <hr>
+
+      <!-- Posted Comments -->
+
+      <!-- Comment -->
+      <div class="media">
+        <a class="pull-left" href="#">
+          <img class="media-object" src="http://placehold.it/64x64" alt="">
+        </a>
+        <div class="media-body">
+          <h4 class="media-heading">Evan Spiler
+                            <small>August 25, 2014 at 9:30 PM</small>
+                        </h4> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+        </div>
+      </div>
+
+      <!-- Comment -->
+      <div class="media">
+        <a class="pull-left" href="#">
+          <img class="media-object" src="http://placehold.it/64x64" alt="">
+        </a>
+        <div class="media-body">
+          <h4 class="media-heading">Grant Wu
+                            <small>August 25, 2014 at 9:30 PM</small>
+                        </h4> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+          <!-- Nested Comment -->
+          <div class="media">
+            <a class="pull-left" href="#">
+              <img class="media-object" src="http://placehold.it/64x64" alt="">
+            </a>
+            <div class="media-body">
+              <h4 class="media-heading">David K
+                                    <small>August 25, 2014 at 9:30 PM</small>
+                                </h4> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+            </div>
+          </div>
+          <!-- End Nested Comment -->
+        </div>
+      </div>
+    </div>
+
+    <!--SIDEBAR-->
+
+    <div class="col-md-4">
+
+      <!-- Sidebar Search-->
+      <div class="well">
+        <h4>Waffle Search</h4>
+        <div class="input-group">
+          <input type="text" class="form-control">
+          <span class="input-group-btn">
+                <button class="btn btn-default" type="button">
+                 <span class="glyphicon glyphicon-search"></span>
+          </button>
+          </span>
+        </div>
+        <!-- /.input-group -->
+      </div>
+
+      <!-- Sidebar Categories Well -->
+      <div class="well">
+        <h4>Waffle Categories</h4>
+        <div class="row">
+          <div class="col-lg-6">
+            <ul class="list-unstyled">
+              <li><a href="#">Javascript</a>
+              </li>
+              <li><a href="#">Ruby</a>
+              </li>
+              <li><a href="#">Python</a>
+              </li>
+              <li><a href="#">PHP</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-6">
+            <ul class="list-unstyled">
+              <li><a href="#">Mongo</a>
+              </li>
+              <li><a href="#">Neo4J</a>
+              </li>
+              <li><a href="#">MySQL</a>
+              </li>
+              <li><a href="#">PostgreSQL</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- /.row -->
+      </div>
+
+      <!-- Side Widget Well -->
+      <div class="well">
+        <h4>Latest</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+      </div>
+
+    </div>
+
+
   </div>
-  <p>{{post.content}}</p>
 </div>

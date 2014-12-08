@@ -1,7 +1,8 @@
 angular.module('waffle', [
   'waffle.services',
-  'waffle.edit',
   'waffle.dashboard',
+  'waffle.edit',
+  'waffle.post',
   'waffle.auth',
   'waffle.nav',
   'ui.router',
@@ -15,7 +16,7 @@ angular.module('waffle', [
   $stateProvider
     .state('post', {
       templateUrl: 'app/post/post.html',
-      controller: 'DashboardController',
+      controller: 'EditController',
       url: '/post'
     })
 

@@ -23,6 +23,7 @@ angular.module('waffle.dashboard', [])
   }
 
   $scope.savePostInfo = function() {
+    console.log(this.post._id);
     $rootScope.title = this.post.title;
     $rootScope.content = this.post.content;
     $rootScope.postID = this.post._id;
