@@ -30,7 +30,8 @@ app.get('/users*', function(req, res) {
   var username;
   var direct_query_username = req.url.split('/')[2];
 
-  console.log("USER FROM COOKIE", req.session.user)
+  console.log ('USER FROM URL: ',direct_query_username);
+  console.log("USER FROM COOKIE: ", req.session.user)
 
   if (direct_query_username !== undefined) {
     username = direct_query_username;
@@ -135,9 +136,13 @@ app.post('/updatePost', function(req, res) {
   }  else { 
     res.status(403).send('Post Failed!')
   }
-
 })
 
+/********** DELETE REQUESTS ********/
+
+app.delete('/deletePost*', function(req,res) {
+  console.log(req.url)
+})
 
 
 // export our app for testing and flexibility, required by index.js

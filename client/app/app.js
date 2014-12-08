@@ -46,6 +46,12 @@ angular.module('waffle', [
       url: '/signup'
     })
 
+    .state('users', {
+      templateUrl: 'app/dashboard/dashboard.html',
+      controller: 'DashboardController',
+      url: '/users'
+    })
+
 })
 
 .factory('httpRequestInterceptor', ['$q', '$location', '$rootScope', function($q, $location) {

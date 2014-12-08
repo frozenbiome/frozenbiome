@@ -34,21 +34,21 @@ angular.module('waffle.services', [])
       url: '/users',
     })
     .then(function(res) {
-      console.log(res.data);
       return res.data;
     })
   }
 
-  // var deletePost = function (postID) {
-  //   return $http({
-  //     method: 'DELETE'
-
-  //   })
-  // }
+  var deletePost = function (postID) {
+    return $http({
+      method: 'DELETE',
+      url: '/deletePost/'+ postID,
+      data: {postID: postID}
+    })
+  }
 
   return {
     getAllPosts: getAllPosts,
-    // deletePost: deletePost
+    deletePost: deletePost
   };
 })
 

@@ -43,11 +43,14 @@ angular.module('waffle.dashboard', [])
   }
 
   $scope.deletePost = function() {
-    //DELETE request function;
-    // Dashboard.deletePost()
-    // .then(function(data) {
-    //   console.log('deleted');
-    // })
+    if (confirm('Are sure you want to delete this post?')) {
+        Dashboard.deletePost(this.post._id)
+        .then(function(data) {
+          console.log('Post Deleted')
+        })
+    } else {
+        // Do nothing!
+    }
   }
 
   $scope.savePostInfo = function() {
@@ -79,7 +82,7 @@ angular.module('waffle.dashboard', [])
 
   //if display name ends with letter s, it'll make it s' instead of 's for dashboard header
   $scope.checkName = function() {
-    if ($scope.displayName[$scope.displayName.length - 1] === 's') {return true;}
+    if ($scope.displayName && $scope.displayName[$scope.displayName.length - 1] === 's') {return true;}
   }
 
 })
