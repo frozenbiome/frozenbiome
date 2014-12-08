@@ -28,7 +28,8 @@ var User = new Schema({
 //Post schema
 var Post = new Schema({
     title: { type: String, required: true },
-    author: { type: Number, ref: 'Person' },
+    author: { type: String, required: true },
+    username: { type: String, required: true },
     is_published: { type: Boolean, default: false },
     content: { type: String, required: true },
     created: { type: Date, default: Date.now },

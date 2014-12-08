@@ -108,28 +108,33 @@ app.post('/login', function(req,res) {
 
 //save new post
 app.post('/newPost', function(req, res) {
-	// if (req.session.user) {
+	if (req.session.user) {
     var username = req.session.user;
-    //var username = req.body.username;
+    var displayName = req.session.displayName;
     console.log("POSTING FOR", username)
 		var title = req.body.title;
 		var content = req.body.content;
-		mongo_helpers.saveNewPost(username, title, content, 
+		mongo_helpers.saveNewPost(username, displayName, title, content, 
 			function() { res.status(403).send('Post Failed!')}, 
 			function() { res.send('Posted!')})
+  } else { 
+    res.status(403).send('Post Failed!')
+  }
 })
 
 app.post('/updatePost', function(req, res) {
-	// if (req.session.user) {
-    //var username = req.session.user;
-    console.log("UPDATE SERVER HERE!!!!!!!")
-    var username = req.body.username;
+	if (req.session.user) {
+    var username = req.session.user;
+    // var username = req.body.username;
 		var title = req.body.title;
 		var content = req.body.content;
 		var postID = req.body.postID;
 		mongo_helpers.updatePost(username, title, content, postID, 
 			function() { res.status(403).send('Post Failed!')}, 
 			function() { res.send('Posted!')})
+  }  else { 
+    res.status(403).send('Post Failed!')
+  }
 
 })
 
