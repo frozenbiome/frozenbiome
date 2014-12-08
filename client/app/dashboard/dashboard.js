@@ -1,7 +1,7 @@
 angular.module('waffle.dashboard', [])
 
 
-.controller('DashboardController', function($scope, $rootScope, Dashboard, $timeout) {
+.controller('DashboardController', function($scope, $rootScope, Dashboard, $timeout, $location) {
   $scope.posts = [];
   //For tracking which posts are already rendered
   $scope.post_ids = [];
@@ -31,6 +31,15 @@ angular.module('waffle.dashboard', [])
         });
 
       });
+  }
+
+  $scope.makePost = function() {
+    $rootScope.title = '';
+    $rootScope.content = '';
+    $rootScope.postID = '';
+    $rootScope.isUpdate = false;
+
+    $location.path('/edit');
   }
 
   $scope.savePostInfo = function() {

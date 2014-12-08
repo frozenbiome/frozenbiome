@@ -171,9 +171,18 @@ h4{
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
 }
 
-.btn-green:hover{
+.btn-green:hover {
   color:#ddd;
 }
+
+.btn-expand {
+  width: 100%;
+  padding: 5px 0; 
+  font-family: 'Rokkitt', serif;
+  font-weight: bold;
+  font-size: 1.6em;
+}
+
 .spacer {
   margin-bottom: 5px;
 }

@@ -6,6 +6,11 @@
     <!--SIDEBAR-->
 
     <div class="col-md-4">
+      
+      <!-- MAKE NEW POST-->
+      <div ng-if='loggedIn' class="well">
+        <button class="btn btn-blue btn-lrg btn-expand" ng-click="makePost()">Make New Post</button>
+      </div>
 
       <!-- FILTER POSTS SEARCH-->
       <div class="well">

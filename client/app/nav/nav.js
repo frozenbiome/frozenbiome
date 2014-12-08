@@ -8,14 +8,5 @@ angular.module('waffle.nav', [])
   	$rootScope.user = '';
 
   }
-  
-  $scope.makePost = function() {
-  	$rootScope.title = '';
-    $rootScope.content = '';
-    $rootScope.postID = '';
-    $rootScope.isUpdate = false;
-
-  	$location.path('/edit');
-  }
 
 })
