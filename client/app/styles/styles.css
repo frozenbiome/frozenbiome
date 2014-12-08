@@ -5,9 +5,11 @@ body {
   font-style: italic;
 }
 .dashboard-header{
-  font-style: bolder;
+  font-weight: bolder;
 }
-
+.editing-tools {
+  margin: 20px 0;
+}
 .date {
   color: #666;
 }

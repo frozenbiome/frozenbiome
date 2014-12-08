@@ -63,7 +63,7 @@
     <!-- Dashboard Area -->
     <div class="col-lg-8">
       <div class="well">
-        <h1 class="dashboard-header">David K's Dashboard</h1>
+        <h1 class="dashboard-header">{{ getRandomName() }}'s Dashboard</h1>
       </div>
       <div ng-init="getAllPosts()">
         <ul class="list-group">
@@ -79,6 +79,14 @@
           </li>
         </ul>
       </div>
+      <nav ng-if="posts.length > 5">
+        <ul class="pager">
+          <li><a href="#">Previous</a>
+          </li>
+          <li><a href="#">Next</a>
+          </li>
+        </ul>
+      </nav>
     </div>
   </div>
 </div>

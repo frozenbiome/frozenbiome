@@ -10,6 +10,12 @@ angular.module('waffle.dashboard', [])
     return Math.floor((Math.random() * 100));
   }
 
+  $scope.getRandomName = function() {
+    arr = ['Alex Hawkins', 'Evan Spiler', 'David Kae', 'Grant Wu'];
+    var pos = Math.floor((Math.random() * 4));
+    return arr[pos];
+  }
+
   $scope.getAllPosts = function() {
     console.log("GETTING POSTS")
     Dashboard.getAllPosts()
