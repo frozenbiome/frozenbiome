@@ -113,6 +113,7 @@
             <!--EDIT BUTTON (only show if user is logged in)-->
             <!--TODO: make visible only to users that are logged in and creators of post-->
             <a ng-if="loggedIn" href="#/edit" ng-click="savePostInfo()"><span class="label label-success">Edit</span></a>
+            <a ng-if="loggedIn" href='#/dashboard' ng-click="deletePost()"><span class="label label-danger">Delete</span></a>
           </li>
         </ul>
       </div>

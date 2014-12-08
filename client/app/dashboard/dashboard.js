@@ -42,6 +42,14 @@ angular.module('waffle.dashboard', [])
     $location.path('/edit');
   }
 
+  $scope.deletePost = function() {
+    //DELETE request function;
+    // Dashboard.deletePost()
+    // .then(function(data) {
+    //   console.log('deleted');
+    // })
+  }
+
   $scope.savePostInfo = function() {
     console.log(this.post._id);
     $rootScope.title = this.post.title;

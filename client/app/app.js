@@ -12,6 +12,8 @@ angular.module('waffle', [
 
 .config(function($stateProvider, $urlRouterProvider, $httpProvider) {
   $urlRouterProvider.otherwise('/dashboard');
+  
+  $httpProvider.interceptors.push('httpRequestInterceptor');
 
   $stateProvider
     .state('post', {
@@ -45,3 +47,15 @@ angular.module('waffle', [
     })
 
 })
+
+.factory('httpRequestInterceptor', ['$q', '$location', '$rootScope', function($q, $location) {
+    return {
+      'responseError': function(rejection) {
+          if (rejection.status === 403) {
+
+              $location.path('/login');
+              return $q.reject(rejection);
+          }
+      }
+  };
+}]);

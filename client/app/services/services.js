@@ -39,8 +39,16 @@ angular.module('waffle.services', [])
     })
   }
 
+  // var deletePost = function (postID) {
+  //   return $http({
+  //     method: 'DELETE'
+
+  //   })
+  // }
+
   return {
     getAllPosts: getAllPosts,
+    // deletePost: deletePost
   };
 })
 
