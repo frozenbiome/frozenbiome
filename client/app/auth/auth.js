@@ -22,25 +22,25 @@ angular.module('waffle.auth', [])
 	}
 
 	$scope.signup = function() {
-		if (!$scope.username || !$scope.password || !$scope.displayName) {
+		if (!$scope.username || !$scope.password || !$scope.newDisplayName) {
 			alert('All fields required!')
 		}
 		if ($scope.password !== $scope.passwordMatch) {
 			alert('Passwords do not match!');
 			return;
 		}
-		Auth.signup($scope.username, $scope.password, $scope.displayName)
+		Auth.signup($scope.username, $scope.password, $scope.newDisplayName)
 		.then(function(data){
 			$rootScope.loggedIn = true;
 			$rootScope.user = $scope.username;
-			$rootScope.displayName = $scope.displayName;
+			$rootScope.displayName = $scope.newDisplayName;
 			$location.path('/');
 		}, function(err) {
 			alert(err.data)
 			$scope.username = '';
 			$scope.password = '';
 			$scope.passwordMatch = '';
-			$scope.displayName = '';
+			$scope.newDisplayName = '';
 		})
 	}
 
