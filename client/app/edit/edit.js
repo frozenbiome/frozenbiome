@@ -22,6 +22,8 @@ angular.module('waffle.edit', [])
   }
 
   $scope.updatePost = function(title, content) {
+    console.log("TRYING")
+    console.log($rootScope.displayName)
     Edit.updatePost(title, content, $rootScope.postID)
     .success(function(data) {
   	  console.log("SUCCESS: ", data)
@@ -37,7 +39,9 @@ angular.module('waffle.edit', [])
   $scope.checkSession = function() {
     Auth.checkSession()
     .then(function(data) {
-      $rootScope.displayName = data.data;
+      $rootScope.displayName = data.data.displayName;
+      $rootScope.user = data.data.username;
+      $rootScope.loggedIn = true;
     })
   }
 

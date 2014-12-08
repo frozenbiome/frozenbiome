@@ -1,7 +1,7 @@
 angular.module('waffle.services', [])
 
 
-.factory('Edit', function ($http, $location, $window) {
+.factory('Edit', function ($http, $location, $window, $rootScope) {
   //getPost() if post exists, else if new post, don't
   var addPost = function (title, content, user) {
     return $http({
