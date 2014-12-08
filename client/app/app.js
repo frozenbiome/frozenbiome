@@ -6,8 +6,8 @@ angular.module('waffle', [
   'waffle.auth',
   'waffle.nav',
   'ui.router',
-  'ngSanitize',
-  'btford.markdown',
+  //'ngSanitize',
+  //'btford.markdown',
 ])
 
 .config(function($stateProvider, $urlRouterProvider, $httpProvider) {
