@@ -9,9 +9,9 @@
 
       <!-- Sidebar Search-->
       <div class="well">
-        <h4>Waffle Search</h4>
+        <h4>Filter My Posts</h4>
         <div class="input-group">
-          <input type="text" class="form-control">
+          <input type="text" class="form-control" ng-model="query">
           <span class="input-group-btn">
                 <button class="btn btn-default" type="button">
                  <span class="glyphicon glyphicon-search"></span>
@@ -63,21 +63,20 @@
     <!-- Dashboard Area -->
     <div class="col-lg-8">
       <div class="well">
-        <h1>Evan Spiler's Dashboard</h1>
+        <h1>David K's Dashboard</h1>
       </div>
       <div ng-init="getAllPosts()">
-
-        <!--<button ng-click="getAllPosts()">Get Posts</button>-->
-        <div ng-repeat="post in posts.slice().reverse()">
-          <div ng-model="user">{{user.username}}</div>
-          <div ng-model="post">
+        <ul class="list-group">
+          <!--<button ng-click="getAllPosts()">Get Posts</button>-->
+          <li class="list-group-item" ng-repeat="post in posts.slice().reverse() | filter:query">
+            <span class="badge">{{ getRandomSpan() }}</span>
             <h2><a ng-click="savePostInfo()" href="#/post">{{post.title}}</a></h2>
             <p class="snippet">{{post.content | limitTo : 200}} ...
               <a ng-show="true" class="read-more" href="#/post" role="button" ng-click="savePostInfo()">Read more</a>
             </p>
             <a ng-show="true" href="#/edit" ng-click="savePostInfo()">Edit</a>
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>

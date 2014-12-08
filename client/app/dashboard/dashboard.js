@@ -6,6 +6,11 @@ angular.module('waffle.dashboard', [])
   //For tracking which posts are already rendered
   $scope.post_ids = [];
 
+  $scope.getRandomSpan = function(){
+    return Math.floor((Math.random()*100));
+  }
+
+
   $scope.getAllPosts = function () {
     console.log("GETTING POSTS")
       Dashboard.getAllPosts()
