@@ -15,7 +15,7 @@ angular.module('waffle.services', [])
     return $http({
       method: 'POST',
       url: 'updatePost',
-      data: { title: title, content: content, username: 'david', postID: postID }
+      data: { title: title, content: content, username: $rootScope.user, postID: postID }
     });
   }
 
@@ -70,7 +70,7 @@ angular.module('waffle.services', [])
 
   var checkSession = function() {
     return $http({
-      methof: 'GET',
+      method: 'GET',
       url: '/checkSession'
     })
   }

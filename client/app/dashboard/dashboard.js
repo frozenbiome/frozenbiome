@@ -62,7 +62,9 @@ angular.module('waffle.dashboard', [])
   $scope.checkSession = function() {
     Auth.checkSession()
     .then(function(data) {
-      $rootScope.displayName = data.data;
+      $rootScope.displayName = data.data.displayName;
+      $rootScope.user = data.data.username;
+      $rootScope.loggedIn = true;
     })
   }
 

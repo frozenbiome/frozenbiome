@@ -58,7 +58,10 @@ app.get('/logout', function(req,res) {
 
 app.get('/checkSession', function(req,res) {
 	if (req.session.user) {
-    res.send(req.session.user, req.session.displayName)
+    res.send(JSON.stringify({
+      username:  req.session.user, 
+      displayName: req.session.displayName
+    }))
  	} else {
  		res.status(400).send('Error checking session')
  	}

@@ -1,6 +1,6 @@
 angular.module('waffle.edit', [])
 
-.controller('EditController', function ($scope, $rootScope, Edit, Dashboard, $location) {
+.controller('EditController', function ($scope, $rootScope, Edit, Dashboard, $location, Auth) {
 
   $scope.getRandomName = function() {
     arr = ['Alex Hawkins', 'Evan Spiler', 'David Kae', 'Grant Wu'];
@@ -33,4 +33,12 @@ angular.module('waffle.edit', [])
 
     $location.path('/');
   }
+
+  $scope.checkSession = function() {
+    Auth.checkSession()
+    .then(function(data) {
+      $rootScope.displayName = data.data;
+    })
+  }
+
 })
