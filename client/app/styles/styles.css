@@ -20,6 +20,7 @@ h4{
 .dashboard-header {
   font-family: 'Lobster', cursive;
   font-size: 3em;
+  padding-top: -100px;
 }
 .editing-tools {
   margin: 20px 0;
@@ -204,4 +205,12 @@ h4{
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
   padding: 6px 15px;
+}
+
+.dashboard-spacing {
+  padding: 0px 19px 10px 19px;
+}
+.new-post{
+  padding-top: 22px;
+  padding-bottom:21px;
 }
