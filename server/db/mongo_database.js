@@ -11,13 +11,18 @@ var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000
 
 //Mongoose uses a different url format that standard mongodb. This helps us
 //convert.
-var mongooseUri;
-if (process.env.MONGOLAB_URI) { //If we have an env variable in prod, use that
-  mongooseUri = uriUtil.formatMongoose(process.env.MONGOLAB_URI);
+var mongooseUri = process.env.MONGOLAB_URI;
+
+if (mongooseUri) { //If we have an env variable in prod, use that
+  console.log("MONGOLAB ENV VARIABLE: ", mongooseUri)
+
+  //Format the URI
+  mongooseUri = uriUtil.formatMongoose(mongooseUri);
 } else {
   mongooseUri = 'mongodb://localhost/waffledb'; //Otherwise, connect to your local instance. Choose name here.
 }
 
+console.log("INITIALIZING CONNECTION TO MONGOOSE AT: ", mongooseUri)
 mongoose.connect(mongooseUri, options, function (err, res) {
     if (err) { 
         console.log('Connection refused to ' + mongooseUri);
