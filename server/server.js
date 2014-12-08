@@ -30,7 +30,8 @@ app.get('/users*', function(req, res) {
   var username;
   var direct_query_username = req.url.split('/')[2];
 
-  console.log(req.session.user)
+  console.log("USER FROM COOKIE", req.session.user)
+
   if (direct_query_username !== undefined) {
     username = direct_query_username;
   } else if (req.session.user) {
