@@ -4,7 +4,7 @@ body {
 .snippet {
   font-style: italic;
 }
-.dashboard-header{
+.dashboard-header {
   font-weight: bolder;
 }
 .editing-tools {
@@ -90,22 +90,32 @@ body {
   margin-right: auto;
   margin-left: 100px;
 }
-
 .space {
   margin-bottom: 80px;
 }
-
 .dashTitles {
   margin-left: 10px;
   margin-top: 10px;
   font-size: 20pt;
   color: black;
 }
-
 .dashEdit {
   margin-left: 10px;
 }
 .spacer {
   margin-bottom: 5px;
 }
-
+.read-more {
+  color: rgb(221, 17, 68);
+}
+.read-more:hover {
+  color: #ff0000;
+}
+.post-count {
+  background-color: rgb(51, 122, 183);
+  font-size: 1em;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  padding: 6px 15px;
+}

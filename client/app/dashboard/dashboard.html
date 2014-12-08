@@ -7,7 +7,7 @@
 
     <div class="col-md-4">
 
-      <!-- Sidebar Search-->
+      <!-- FILTER POSTS SEARCH-->
       <div class="well">
         <h4>Filter My Posts</h4>
         <div class="input-group">
@@ -21,7 +21,7 @@
         <!-- /.input-group -->
       </div>
 
-      <!-- Sidebar Categories Well -->
+      <!-- SIDEBAR CATEGORIES -->
       <div class="well">
         <h4>My Popular Categories</h4>
         <div class="row">
@@ -53,12 +53,13 @@
         <!-- /.row -->
       </div>
 
-      <!-- Side Widget Well -->
+      <!-- SIDEBAR RANDOM WIDGET -->
       <div class="well">
         <h4>Latest from WafflePress</h4>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
       </div>
 
+      <!--SIDEBAR IMAGES-->
       <div class="well">
         <h4>Latest Image Uploads</h4>
         <div class="img-thumbnail img-responsive">
@@ -79,26 +80,38 @@
       </div>
 
     </div>
-    <!-- Dashboard Area -->
+    <!-- DASHBOARD AREA -->
     <div class="col-lg-8">
       <div class="well">
-       <!--<h1 class="dashboard-header">{{ getRandomName() }}'s Dashboard</h1>-->
-        <h1 class="dashboard-header">David Kae's Waffleboard</h1>
+        <!--<h1 class="dashboard-header">{{ getRandomName() }}'s Dashboard</h1>-->
+        <h1 class="dashboard-header">David Kae's Waffleboard<span class="pull-right badge post-count">{{posts.length}}</span></h1>
       </div>
       <div ng-init="getAllPosts()">
+        <!--LIST OF USER POSTS -->
         <ul class="list-group">
           <!--<button ng-click="getAllPosts()">Get Posts</button>-->
           <li class="list-group-item" ng-repeat="post in posts | filter:query | orderBy:-'post.created'">
+            <!--FAKE COMMENT COUNT-->
             <span class="badge">{{ getRandomSpan() }}</span>
             <h2><a ng-click="savePostInfo()" href="#/post">{{post.title}}</a></h2>
-            <p class="date"><span class="glyphicon glyphicon-time"></span> Posted on {{ post.created | date : format : timezone}} at 9:00 PM</p>
-            <p class="snippet">{{post.content | limitTo : 200}} ...
-              <a ng-show="true" class="read-more" href="#/post" role="button" ng-click="savePostInfo()">Read more</a>
+            <!--POST CREATION DATE-->
+            <p class="date">
+              <span class="glyphicon glyphicon-time"></span> 
+                Posted on {{ post.created | date }} at {{ post.created | date: 'shortTime'}}
             </p>
-            <a ng-show="true" href="#/edit" ng-click="savePostInfo()">Edit</a>
+            <!--POST SNIPPET-->
+            <p class="snippet">{{post.content | limitTo : 200}} ...
+              <a ng-show="true" class="read-more" href="#/post" role="button" ng-click="savePostInfo()">
+                <span class="glyphicon glyphicon-hand-right">
+              </a>
+            </p>
+            <!--EDIT BUTTON (only show if user is logged in)-->
+            <!--TODO: make visible only to users that are logged in and creators of post-->
+            <a ng-if="loggedIn" href="#/edit" ng-click="savePostInfo()"><span class="label label-success">Edit</span></a>
           </li>
         </ul>
       </div>
+      <!--PAGINATION-->
       <nav ng-if="posts.length > 5">
         <ul class="pager">
           <li><a href="#">Previous</a>
