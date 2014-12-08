@@ -40,6 +40,7 @@ angular.module('waffle.auth', [])
 			$scope.username = '';
 			$scope.password = '';
 			$scope.passwordMatch = '';
+			$scope.displayName = '';
 		})
 	}
 
