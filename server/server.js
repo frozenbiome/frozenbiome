@@ -84,9 +84,10 @@ app.post('/login', function(req,res) {
   var password = req.body.password;
   mongo_helpers.authenticateUser(username, password, 
   	function() { res.status(403).send('User or Password Incorrect')}, 
-  	function() { 
+  	function(user) { 
   		req.session.regenerate(function(){
-  			req.session.user = username;
+  			req.session.user = user.username;
+        req.session.displayName = user.displayName
   			console.log("CREATED SESSION FOR ", username)
   			console.log(req.session)
   			res.send("It's Waffle Time!");

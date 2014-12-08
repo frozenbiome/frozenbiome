@@ -12,7 +12,6 @@ angular.module('waffle.services', [])
   }
   
   var updatePost = function (title, content, postID) {
-    console.log("Updating??????")
     return $http({
       method: 'POST',
       url: 'updatePost',
@@ -67,6 +66,10 @@ angular.module('waffle.services', [])
       method: 'GET',
       url: '/logout'
     })
+  }
+
+  var checkSession = function() {
+    
   }
 
   var loggedIn = false;

@@ -70,7 +70,7 @@ var authenticateUser = exports.authenticateUser = function(username, password, e
         } else {
           bcrypt.compare(password, doc.password, function(err, result){
             if(!err && result){
-              successCallback();
+              successCallback(doc);
             } else {
               errCallback();
             }
@@ -79,4 +79,3 @@ var authenticateUser = exports.authenticateUser = function(username, password, e
 	    }
 	});
 }
-
