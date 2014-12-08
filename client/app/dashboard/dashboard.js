@@ -57,6 +57,7 @@ angular.module('waffle.dashboard', [])
     $rootScope.postID = this.post._id;
     $rootScope.isUpdate = true;
     $rootScope.created = this.post.created;
+    $rootScope.postAuthor = this.post.author;
   }
 
   $scope.testFunc = function() {

@@ -17,13 +17,13 @@
 
       <!-- Author -->
       <p class="lead">
-        by <a href="#">{{getRandomName()}}</a>
+        by <a href="#">{{postAuthor}}</a>
       </p>
 
       <hr>
 
       <!-- Date/Time -->
-      <p><span class="glyphicon glyphicon-time"></span> Posted on Dec 7, 2014 at 9:00 PM</p>
+      <p><span class="glyphicon glyphicon-time"></span> {{created | date: 'medium'}}</p>
 
       <hr>
 
