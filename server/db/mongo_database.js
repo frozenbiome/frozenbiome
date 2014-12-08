@@ -20,6 +20,7 @@ var Schema = mongoose.Schema;
 var User = new Schema({
     username: { type: String, required: true, unique: true },
     password: { type: String, required: true },
+    displayName: {type: String, required: true },
     created: { type: Date, default: Date.now },
     posts: [Post]
 });

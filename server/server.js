@@ -66,11 +66,13 @@ app.get('/logout', function(req,res) {
 app.post('/signup', function(req, res) {
 	var username = req.body.username;
 	var password = req.body.password;
-	mongo_helpers.saveNewUser(username, password, 
+  var displayName = req.body.displayName;
+	mongo_helpers.saveNewUser(username, password, displayName,
 		function() { res.status(403).send('Username Taken!')}, 
 		function() { 
 			req.session.regenerate(function(){
-				req.session.user = username;
+        req.session.user = username;
+				req.session.displayName = displayName;
 			});
 			res.send('Saved!'); 
 		})

@@ -2,10 +2,11 @@ var db = require('./mongo_database.js');
 var bcrypt = require('bcrypt-nodejs');
 var ObjectID = require('mongoose').Types.ObjectId;
 
-var saveNewUser = exports.saveNewUser = function(username, password, errCallback, successCallback) {
+var saveNewUser = exports.saveNewUser = function(username, password, displayName, errCallback, successCallback) {
 	var newUser = new db.userModel({
 	  username: username,
-	  password: password
+	  password: password,
+	  displayName: displayName
 	});
 
 	newUser.save(function(err, doc) {

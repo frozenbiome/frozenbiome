@@ -54,11 +54,11 @@ angular.module('waffle.services', [])
     })
   }
 
-  var signup = function (username, password) {
+  var signup = function (username, password, displayName) {
     return $http({
       method: 'POST',
       url: '/signup',
-      data: {username: username, password: password}
+      data: {username: username, password: password, displayName: displayName}
     })
   }
 
