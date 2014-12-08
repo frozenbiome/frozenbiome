@@ -7,7 +7,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand waffleLogo" href="#/dashboard"><img align='left' src='http://www.wpclipart.com/food/breakfast/waffle/waffle_round_small.png' style='width: 40px; height: 40px'><a class="navbar-brand waffleName">WafflePress</a></a>
+    <a class="navbar-brand waffleLogo" href="#/dashboard"><img align='left' src='http://www.wpclipart.com/food/breakfast/waffle/waffle_round_small.png' width="40" height="40"><a class="navbar-brand waffleName">WafflePress</a></a>
   </div>
 
   <!-- Collect the nav links, forms, and other content for toggling -->
@@ -15,12 +15,10 @@
 <!--     <form class="navbar-form navbar-left" ng-if="loggedIn">
     </form> -->
     <ul class="nav navbar-nav navbar-right">
-      <li ng-if="signedIn()">
-        <p class="navbar-text">{{ user.profile.username }}</p>
-      </li>
-      <li ng-if="signedIn()">
+      <li ng-if="loggedIn"><a href="#/users/{{ }}">{{displayName}}</a></li>
+      <li ng-if="loggedIn">
         <a ng-href="#/users/{{ user.profile.uid }}">
-          {{ currentUser.username }}
+          <img height="25" width="25" src="http://www.campsitechatter.com/images/profile/default-male-250.png" class="nav-pic img-responsive" />
         </a>
       </li>
       <li ng-if="loggedIn">
