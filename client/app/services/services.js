@@ -69,7 +69,10 @@ angular.module('waffle.services', [])
   }
 
   var checkSession = function() {
-    
+    return $http({
+      methof: 'GET',
+      url: '/checkSession'
+    })
   }
 
   var loggedIn = false;
@@ -80,6 +83,7 @@ angular.module('waffle.services', [])
     signup: signup,
     logout: logout,
     loggedIn: loggedIn,
-    user: user
+    user: user,
+    checkSession: checkSession
   };
 })

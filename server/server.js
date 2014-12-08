@@ -48,14 +48,22 @@ app.get('/users*', function(req, res) {
 })
 
 app.get('/logout', function(req,res) {
-	console.log(req.session)
+  if (req.session.user) {
+      console.log("DESTROYING SESSION FOR ", req.session.user);
+      req.session.destroy(function(){});
+  } else {
+    res.status(400).send('Not logged in!')
+  }
+})
+
+app.get('/checkSession', function(req,res) {
 	if (req.session.user) {
-	    console.log("DESTROYING SESSION FOR ", req.session.user);
-	    req.session.destroy(function(){});
+    res.send(req.session.user, req.session.displayName)
  	} else {
- 		res.status(400).send('Not logged in!')
+ 		res.status(400).send('Error checking session')
  	}
 })
+
 
 
 

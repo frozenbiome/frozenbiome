@@ -1,7 +1,7 @@
 angular.module('waffle.dashboard', [])
 
 
-.controller('DashboardController', function($scope, $rootScope, Dashboard, $timeout, $location) {
+.controller('DashboardController', function($scope, $rootScope, Dashboard, $timeout, $location, Auth) {
   $scope.posts = [];
   //For tracking which posts are already rendered
   $scope.post_ids = [];
@@ -57,6 +57,13 @@ angular.module('waffle.dashboard', [])
 
   $scope.logged = function() {
     return $rootScope.loggedIn;
+  }
+
+  $scope.checkSession = function() {
+    Auth.checkSession()
+    .then(function(data) {
+      $rootScope.displayName = data.data;
+    })
   }
 
 
