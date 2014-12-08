@@ -1,1 +1,9 @@
-<div>{{post.content}}</div>
+<a ng-href="#/dashboard">Back to Dashboard</a>
+
+<div>
+  <h1>{{ post.title }} <span ng-if="user.uid === post.creatorUID"> | <button class="btn btn-xs btn-danger" ng-click="deletePost(post)"> Delete</button></span></h1>
+  <div>
+    <span>submitted by <a ng-href="#/users/{{ post.creatorUID }}">{{ post.creator }}</a></span>
+  </div>
+  <p>{{post.content}}</p>
+</div>
