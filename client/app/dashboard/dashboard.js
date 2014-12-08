@@ -76,5 +76,9 @@ angular.module('waffle.dashboard', [])
     })
   }
 
+  //if display name ends with letter s, it'll make it s' instead of 's for dashboard header
+  $scope.checkName = function() {
+    if ($scope.displayName[$scope.displayName.length - 1] === 's') {return true;}
+  }
 
 })

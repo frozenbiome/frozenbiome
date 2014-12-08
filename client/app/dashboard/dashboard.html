@@ -89,7 +89,11 @@
     <div class="col-lg-8">
       <div class="well">
         <!--<h1 class="dashboard-header">{{ getRandomName() }}'s Dashboard</h1>-->
-        <h1 class="dashboard-header">{{displayName}}'s Waffleboard<span class="pull-right badge post-count">{{posts.length}}</span></h1>
+        
+        <h1 ng-if="checkName()" class="dashboard-header">{{displayName}}' Waffleboard<span class="pull-right badge post-count">{{posts.length}}</span></h1>
+
+        <h1 ng-if="!checkName()" class="dashboard-header">{{displayName}}'s Waffleboard<span class="pull-right badge post-count">{{posts.length}}</span></h1>
+
       </div>
       <div ng-init="getAllPosts()">
         <!--LIST OF USER POSTS -->
