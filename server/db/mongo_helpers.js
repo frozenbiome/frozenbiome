@@ -51,7 +51,7 @@ var getAllPosts = exports.getAllPosts = function(username, callback) {
       function(err,doc) {
         if (err) { throw err; }
         if (doc) {
-          callback(doc.posts);
+          callback(doc);
         } else {
           callback("User not found", 403)
         }

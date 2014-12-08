@@ -24,13 +24,12 @@ var routes = {};
 /********** GET REQUESTS ********/
 
 // get all posts for user
-//  http://www.wafflepress.com/users?q=evan
 app.get('/users*', function(req, res) {
-  //TODO: If username is in URL, parse that. If not, get from session
+  //If username is in URL, parse that. If not, get from session
   var username;
   var direct_query_username = req.url.split('/')[2];
 
-  console.log ('USER FROM URL: ',direct_query_username);
+  console.log ('************************USER FROM URL: ',direct_query_username);
   console.log("USER FROM COOKIE: ", req.session.user)
 
   if (direct_query_username !== undefined) {
@@ -39,11 +38,11 @@ app.get('/users*', function(req, res) {
     username = req.session.user;
   } 
 
-	mongo_helpers.getAllPosts(username, function(posts, status) {
+	mongo_helpers.getAllPosts(username, function(doc, status) {
     if (status) {
-      res.status(status).send(posts);
+      res.status(status).send(doc.posts);
     } else {
-      res.send(posts);
+      res.send(doc);
     }
 	})
 })

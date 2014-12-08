@@ -46,9 +46,20 @@ angular.module('waffle.services', [])
     })
   }
 
+  var loadUserBlog = function(username) {
+    return $http({
+      method: 'GET',
+      url: '/users/' + username,
+    })
+    .then(function(res) {
+      return res.data;
+    })
+  }
+
   return {
     getAllPosts: getAllPosts,
-    deletePost: deletePost
+    deletePost: deletePost,
+    loadUserBlog: loadUserBlog
   };
 })
 

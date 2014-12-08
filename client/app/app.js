@@ -47,9 +47,9 @@ angular.module('waffle', [
     })
 
     .state('users', {
-      templateUrl: 'app/dashboard/dashboard.html',
+      templateUrl: 'app/users/users.html',
       controller: 'DashboardController',
-      url: '/users'
+      url: "/{beginPath:users/}{endPath:.+}"
     })
 
 })
