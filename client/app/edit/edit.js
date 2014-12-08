@@ -2,8 +2,14 @@ angular.module('waffle.edit', [])
 
 .controller('EditController', function ($scope, $rootScope, Edit, Dashboard, $location) {
 
-  $scope.submit = function(title, content) {
-  	Edit.addPost(this.title, this.content, $rootScope.user)
+  $scope.getRandomName = function() {
+    arr = ['Alex Hawkins', 'Evan Spiler', 'David Kae', 'Grant Wu'];
+    var pos = Math.floor((Math.random() * 4));
+    return arr[pos];
+  }
+
+  $scope.submit = function(title, content, created) {
+  	Edit.addPost(this.title, this.content, this.created, $rootScope.user)
   	.success(function(data) {
       console.log("SUCCESS: ", data)
     })

@@ -4,6 +4,13 @@ body {
 .snippet {
   font-style: italic;
 }
+.dashboard-header{
+  font-style: bolder;
+}
+
+.date {
+  color: #666;
+}
 .navbar-default .navbar-collapse {
   background-color: rgb(51, 122, 183);
 }

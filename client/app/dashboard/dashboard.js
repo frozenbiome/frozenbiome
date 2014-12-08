@@ -1,28 +1,28 @@
 angular.module('waffle.dashboard', [])
 
 
-.controller('DashboardController', function ($scope, $rootScope, Dashboard, $timeout) {
+.controller('DashboardController', function($scope, $rootScope, Dashboard, $timeout) {
   $scope.posts = [];
   //For tracking which posts are already rendered
   $scope.post_ids = [];
 
-  $scope.getRandomSpan = function(){
-    return Math.floor((Math.random()*100));
+  $scope.getRandomSpan = function() {
+    return Math.floor((Math.random() * 100));
   }
 
-
-  $scope.getAllPosts = function () {
+  $scope.getAllPosts = function() {
     console.log("GETTING POSTS")
-      Dashboard.getAllPosts()
-      .then(function (data) {
+    Dashboard.getAllPosts()
+      .then(function(data) {
         data.forEach(function(post) {
           console.log(post)
           if ($scope.post_ids.indexOf(post._id) == -1) {
             $scope.posts.push(post);
             $scope.post_ids.push(post._id);
           }
-        }, function (err) { console.log("Couldn't retrieve posts: ", err); }
-        );
+        }, function(err) {
+          console.log("Couldn't retrieve posts: ", err);
+        });
 
       });
   }
@@ -33,6 +33,7 @@ angular.module('waffle.dashboard', [])
     $rootScope.content = this.post.content;
     $rootScope.postID = this.post._id;
     $rootScope.isUpdate = true;
+    $rootScope.created = this.post.created;
   }
 
   $scope.testFunc = function() {
@@ -42,6 +43,6 @@ angular.module('waffle.dashboard', [])
   $scope.logged = function() {
     return $rootScope.loggedIn;
   }
-  
+
 
 })

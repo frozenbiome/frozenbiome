@@ -23,7 +23,7 @@
 
       <!-- Sidebar Categories Well -->
       <div class="well">
-        <h4>Waffle Categories</h4>
+        <h4>My Popular Categories</h4>
         <div class="row">
           <div class="col-lg-6">
             <ul class="list-unstyled">
@@ -55,7 +55,7 @@
 
       <!-- Side Widget Well -->
       <div class="well">
-        <h4>Latest</h4>
+        <h4>Latest from WafflePress</h4>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
       </div>
 
@@ -63,14 +63,15 @@
     <!-- Dashboard Area -->
     <div class="col-lg-8">
       <div class="well">
-        <h1>David K's Dashboard</h1>
+        <h1 class="dashboard-header">David K's Dashboard</h1>
       </div>
       <div ng-init="getAllPosts()">
         <ul class="list-group">
           <!--<button ng-click="getAllPosts()">Get Posts</button>-->
-          <li class="list-group-item" ng-repeat="post in posts.slice().reverse() | filter:query">
+          <li class="list-group-item" ng-repeat="post in posts | filter:query | orderBy:-'post.created'">
             <span class="badge">{{ getRandomSpan() }}</span>
             <h2><a ng-click="savePostInfo()" href="#/post">{{post.title}}</a></h2>
+            <p class="date"><span class="glyphicon glyphicon-time"></span> Posted on {{ post.created | date : format : timezone}} at 9:00 PM</p>
             <p class="snippet">{{post.content | limitTo : 200}} ...
               <a ng-show="true" class="read-more" href="#/post" role="button" ng-click="savePostInfo()">Read more</a>
             </p>
