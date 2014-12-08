@@ -1,19 +1,37 @@
 var mongoose = require('mongoose');
+//For parsing mongolab uri in prod
+var uriUtil = require('mongodb-uri');
+
 var bcrypt = require('bcrypt-nodejs');
 var SALT_WORK_FACTOR = 10;
 
-var mongodbURL = 'mongodb://localhost/waffledb'; 
+//30 second timeout
+var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } }, 
+                replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } } };  
 
-mongoose.connect(mongodbURL, function (err, res) {
+//Mongoose uses a different url format that standard mongodb. This helps us
+//convert.
+var mongooseUri;
+if (process.env.MONGOLAB_URI) { //If we have an env variable in prod, use that
+  mongooseUri = uriUtil.formatMongoose(process.env.MONGOLAB_URI);
+} else {
+  mongooseUri = 'mongodb://localhost/waffledb'; //Otherwise, connect to your local instance. Choose name here.
+}
+
+mongoose.connect(mongooseUri, options, function (err, res) {
     if (err) { 
-        console.log('Connection refused to ' + mongodbURL);
+        console.log('Connection refused to ' + mongooseUri);
         console.log(err);
     } else {
-        console.log('Connection successful to: ' + mongodbURL);
+        console.log('Connection successful to: ' + mongooseUri);
     }
 });
 
-//Define Schema
+
+
+
+
+//Define Schema//////////////////////////
 var Schema = mongoose.Schema;
 
 // User schema
