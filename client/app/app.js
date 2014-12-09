@@ -6,6 +6,8 @@ angular.module('waffle', [
   'waffle.auth',
   'waffle.nav',
   'ui.router',
+  'yaru22.md',
+  'ngSanitize'
 ])
 
 .config(function($stateProvider, $urlRouterProvider, $httpProvider) {

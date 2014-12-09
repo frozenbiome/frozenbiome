@@ -3,6 +3,7 @@ var bodyParser = require('body-parser'); //bodyparser + json + urlencoder
 var morgan  = require('morgan'); // logger
 var mongo_helpers = require('./db/mongo_helpers.js')
 var session = require('express-session');
+var marked = require('marked');
 
 var app = express();
 
@@ -42,6 +43,10 @@ app.get('/users*', function(req, res) {
     if (status) {
       res.status(status).send(doc.posts);
     } else {
+      doc.posts.forEach(function(post) {
+        //Add a markdown-parsed version to the sent data
+        post.markedContent = marked(post.content);
+      })
       res.send(doc);
     }
 	})

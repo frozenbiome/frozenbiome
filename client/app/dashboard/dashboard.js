@@ -59,6 +59,7 @@ angular.module('waffle.dashboard', [])
     console.log(this.post._id);
     $rootScope.title = this.post.title;
     $rootScope.content = this.post.content;
+    $rootScope.markedContent = this.post.markedContent;
     $rootScope.postID = this.post._id;
     $rootScope.isUpdate = true;
     $rootScope.created = this.post.created;
