@@ -67,6 +67,20 @@ var getAllPosts = exports.getAllPosts = function(username, callback) {
     ) 
 };
 
+var getAllWafflers = exports.getAllWafflers = function(callback) {
+  db.userModel.find()
+    .exec(
+      function(err,doc) {
+        if (err) { throw err; }
+        if (doc) {
+          callback(doc);
+        } else {
+          callback("Error, WHo knows wHy??", 403)
+        }
+      }
+    ) 
+};
+
 
 var authenticateUser = exports.authenticateUser = function(username, password, errCallback, successCallback) {
 	db.userModel.findOne({username: username}, function(err,doc) {

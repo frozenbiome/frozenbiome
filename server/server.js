@@ -67,6 +67,25 @@ app.get('/checkSession', function(req,res) {
  	}
 })
 
+app.get('/allWafflers', function(req,res) {
+  mongo_helpers.getAllWafflers(function(doc, status) {
+    if (status) {
+      console.log('FAIL?', doc)
+      res.status(status).send(doc);
+    } else {
+      var wafflers = [];
+      doc.forEach(function(user) {
+        wafflers.push({
+          username: user.username,
+          displayName: user.displayName,
+          id: user._id
+        })
+      })
+      res.send(JSON.stringify(wafflers))
+    }
+  })
+})
+
 
 
 

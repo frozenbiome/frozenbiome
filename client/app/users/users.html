@@ -21,7 +21,7 @@
       </div>
 
       <!-- OTHER USERS PANEL -->
-       <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+       <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" ng-init="getAllWafflers()">
         <div class="panel panel-default">
           <div class="panel-heading" role="tab" id="headingOne">
             <h4 class="panel-title">
@@ -32,28 +32,10 @@
             </h4>
           </div>
           <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-            <!--TEST DUMMY DATA FOR EVAN (commment out later)-->
-              <ul class="list-group">
-                <li class="list-group-item">
-                  <a href="#/users/espiler">Evan Spiler</a>
-                </li>
-                <li class="list-group-item">
-                  <a href="#/">Grant Wu</a>
-                </li>
-                <li class="list-group-item">
-                  <a href="#/users/david">David Kae</a>
-                </li>
-                <li class="list-group-item">
-                  <a href="#/">Biff Tanin</a>
-                </li>
-                <li class="list-group-item">
-                  <a href="#/users/achawkins">Alex Hawkins</a>
-                </li>
-              </ul>
               <!--NG-REPEAT REAL USER DATA-->
-              <ul ng-repeat="user in users | limitTo:5" class="list-group">
+              <ul ng-repeat="waffler in wafflers | limitTo:5" class="list-group">
                 <li class="list-group-item">
-                  <a ng-href="#/users/{{ username }}">{{user}}</a>
+                  <a ng-href="#/users/{{waffler}}">{{waffler.displayName}}</a>
                 </li>
               </ul>
           </div>

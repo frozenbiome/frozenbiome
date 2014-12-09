@@ -5,6 +5,8 @@ angular.module('waffle.dashboard', [])
   $scope.posts = [];
   //For tracking which posts are already rendered
   $scope.post_ids = [];
+  $rootScope.wafflers = [];
+  $rootScope.waffler_ids = [];
 
   $scope.getRandomSpan = function() {
     return Math.floor((Math.random() * 100));
@@ -38,7 +40,6 @@ angular.module('waffle.dashboard', [])
     $rootScope.content = '';
     $rootScope.postID = '';
     $rootScope.isUpdate = false;
-
     $location.path('/edit');
   }
 
@@ -84,6 +85,20 @@ angular.module('waffle.dashboard', [])
   //if display name ends with letter s, it'll make it s' instead of 's for dashboard header
   $scope.checkName = function() {
     if ($scope.displayName && $scope.displayName[$scope.displayName.length - 1] === 's') {return true;}
+  }
+
+  $scope.getAllWafflers = function() {
+    Dashboard.getAllWafflers()
+    .then(function(data) {
+      data.forEach(function(waffler) {
+        if ($rootScope.waffler_ids.indexOf(waffler.id) === -1) {
+          $rootScope.wafflers.push(waffler);
+          $rootScope.waffler_ids.push(waffler._id);
+        }
+      }, function(err) {
+        console.log("Couldn't retrieve Wafflers: ", err)
+      })
+    })
   }
 
   $scope.loadUserBlog = function() {

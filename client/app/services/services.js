@@ -55,10 +55,21 @@ angular.module('waffle.services', [])
     })
   }
 
+  var getAllWafflers = function() {
+    return $http({
+      method: 'GET',
+      url: '/allWafflers'
+    })
+    .then(function(res) {
+      return res.data;
+    })
+  }
+
   return {
     getAllPosts: getAllPosts,
     deletePost: deletePost,
-    loadUserBlog: loadUserBlog
+    loadUserBlog: loadUserBlog,
+    getAllWafflers: getAllWafflers
   };
 })
 
