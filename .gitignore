@@ -2,4 +2,3 @@
 *.swo
 node_modules
 /data/**
-/client/lib/**
