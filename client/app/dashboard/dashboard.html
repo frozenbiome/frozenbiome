@@ -26,7 +26,7 @@
         <!-- /.input-group -->
       </div>
 
-      <!-- OTHER USERS PANEL-->
+      <!-- OTHER USERS PANEL -->
        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
         <div class="panel panel-default">
           <div class="panel-heading" role="tab" id="headingOne">
@@ -38,13 +38,30 @@
             </h4>
           </div>
           <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-            <div class="panel-body">
+            <!--TEST DUMMY DATA FOR EVAN (commment out later)-->
+              <ul class="list-group">
+                <li class="list-group-item">
+                  <a href="#/">Evan Spiler</a>
+                </li>
+                <li class="list-group-item">
+                  <a href="#/">Grant Wu</a>
+                </li>
+                <li class="list-group-item">
+                  <a href="#/">David Kae</a>
+                </li>
+                <li class="list-group-item">
+                  <a href="#/">Biff Tanin</a>
+                </li>
+                <li class="list-group-item">
+                  <a href="#/">Alex Hawkins</a>
+                </li>
+              </ul>
+              <!--NG-REPEAT REAL USER DATA-->
               <ul ng-repeat="user in users | limitTo:5" class="list-group">
                 <li class="list-group-item">
                   <a ng-href="#/users/{{ username }}">{{user}}</a>
                 </li>
-             </ul>
-            </div>
+              </ul>
           </div>
         </div>
       </div>
