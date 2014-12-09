@@ -35,7 +35,7 @@
               <!--NG-REPEAT REAL USER DATA-->
               <ul ng-repeat="waffler in wafflers | limitTo:5" class="list-group">
                 <li class="list-group-item">
-                  <a ng-href="#/users/{{waffler}}">{{waffler.displayName}}</a>
+                  <a ng-href="#/users/{{waffler.username}}">{{waffler.displayName}}</a>
                 </li>
               </ul>
           </div>
