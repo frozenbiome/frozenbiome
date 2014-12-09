@@ -26,6 +26,29 @@
         <!-- /.input-group -->
       </div>
 
+      <!-- OTHER USERS PANEL-->
+       <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+              <a class="other-users" data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Other Wafflers
+                <span class="drop-down-graphic glyphicon glyphicon-collapse-down pull-right"></span>
+              </a>
+            </h4>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+              <ul ng-repeat="user in users | limitTo:5" class="list-group">
+                <li class="list-group-item">
+                  <a ng-href="#/users/{{ username }}">{{user}}</a>
+                </li>
+             </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- SIDEBAR CATEGORIES -->
       <div class="well">
         <h4>My Popular Categories</h4>

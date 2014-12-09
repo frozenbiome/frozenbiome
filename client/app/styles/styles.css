@@ -214,3 +214,14 @@ h4{
   padding-top: 22px;
   padding-bottom:21px;
 }
+
+.other-users{
+  font-family: 'Rokkitt', serif;
+  font-weight: bold;
+  font-size: 1.4em;
+}
+
+.drop-down-graphic{
+  font-size: .9em;
+  color: #666;
+}
