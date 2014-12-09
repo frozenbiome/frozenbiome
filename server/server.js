@@ -29,7 +29,7 @@ app.get('/users*', function(req, res) {
   var username;
   var direct_query_username = req.url.split('/')[2];
 
-  console.log ('************************USER FROM URL: ',direct_query_username);
+  console.log ('USER FROM URL: ',direct_query_username);
   console.log("USER FROM COOKIE: ", req.session.user)
 
   if (direct_query_username !== undefined) {
@@ -132,7 +132,7 @@ app.post('/updatePost', function(req, res) {
 		mongo_helpers.updatePost(username, title, content, postID, 
 			function() { res.status(403).send('Post Failed!')}, 
 			function() { res.send('Posted!')})
-  }  else { 
+  } else { 
     res.status(403).send('Post Failed!')
   }
 })
@@ -140,7 +140,11 @@ app.post('/updatePost', function(req, res) {
 /********** DELETE REQUESTS ********/
 
 app.delete('/deletePost*', function(req,res) {
-  console.log(req.url)
+  var username = req.session.user;
+  var postID = req.url.split('/')[2]
+  mongo_helpers.deletePost(username, postID,
+    function() { res.status(403).send('Post not found!')}, 
+    function() { res.send('Post Deleted')}) 
 })
 
 

@@ -41,8 +41,7 @@ angular.module('waffle.services', [])
   var deletePost = function (postID) {
     return $http({
       method: 'DELETE',
-      url: '/deletePost/'+ postID,
-      data: {postID: postID}
+      url: '/deletePost/'+ postID
     })
   }
 
