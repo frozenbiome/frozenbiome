@@ -47,7 +47,7 @@ angular.module('waffle.dashboard', [])
         console.log("**************  DELETE POST: ", this.post._id)
         Dashboard.deletePost(this.post._id)
         .then(function(data) {
-          console.log('Post Deleted')
+          location.reload();
         })
     } else {
         // Do nothing!

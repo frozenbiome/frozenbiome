@@ -44,17 +44,12 @@ var updatePost = exports.updatePost = function(username, title, content, postID,
 }
 
 var deletePost = exports.deletePost = function(username, postID, errCallback, successCallback) {
-	// postID = new ObjectID(postID);
-	console.log('################## USER: ', username, '\n\n')
-	console.log('################## postID: ', postID, '\n\n')
-	db.userModel.findOne({username: username}, function (err, user) {
+	postID = ObjectID(postID);
+	db.userModel.findOneAndUpdate({username: username}, {$pull: {posts: {_id: postID}}}, function(err, doc){
 		if (err) { errCallback() }
-		else if (user) {
-			// console.log(user);
-			user.posts.pull({_id: postID})
-			successCallback();
+		else { successCallback(); }
 		}
-	})
+	)
 }
 
 
